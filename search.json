@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "I’m a graduate student in Applied Business Analytics."
+  },
+  {
+    "objectID": "about.html#skills",
+    "href": "about.html#skills",
+    "title": "About",
+    "section": "Skills",
+    "text": "Skills\n\nSQL, Python, R\nData modeling, dashboards, storytelling\nForecasting, regression/ML, optimization"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "Hello, World!\nWelcome to my Quarto website. ## Links - GitHub: https://github.com/esshak-bu"
+  }
+]
