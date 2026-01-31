@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "I’m a graduate student in Applied Business Analytics."
+  },
+  {
+    "objectID": "about.html#skills",
+    "href": "about.html#skills",
+    "title": "About",
+    "section": "Skills",
+    "text": "Skills\n\nSQL, Python, R\nData modeling, dashboards, storytelling\nForecasting, regression/ML, optimization"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "Hello, World!\nWelcome to my Quarto website. ## Links - GitHub: https://github.com/esshak-bu\n\nfrom pyspark.sql import SparkSession\n\nspark = SparkSession.builder.getOrCreate()\ndf = spark.createDataFrame(\n    [(\"A\", 10), (\"B\", 20)],\n    [\"category\", \"value\"]\n)\ndf.show()\n\nWARNING: Using incubator modules: jdk.incubator.vector\nUsing Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties\nSetting default log level to \"WARN\".\nTo adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).\n26/01/31 19:48:04 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable\n[Stage 0:&gt;                                                          (0 + 1) / 1]                                                                                \n\n\n+--------+-----+\n|category|value|\n+--------+-----+\n|       A|   10|\n|       B|   20|\n+--------+-----+"
+  }
+]

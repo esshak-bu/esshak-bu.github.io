@@ -9,3 +9,13 @@ date: "2026-01-12"
 Welcome to my Quarto website.
 ## Links
 - GitHub: https://github.com/esshak-bu
+```{python}
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder.getOrCreate()
+df = spark.createDataFrame(
+    [("A", 10), ("B", 20)],
+    ["category", "value"]
+)
+df.show()
+```
