@@ -11,13 +11,13 @@
     "href": "about.html#skills",
     "title": "About",
     "section": "Skills",
-    "text": "Skills\n\nSQL, Python, R\nData modeling, dashboards, storytelling\nForecasting, regression/ML, optimization"
+    "text": "Skills\n\nSQL, Python, R\nData modeling, dashboards, storytelling\nForecasting, regression/ML, optimization\n\n\nimport platform\nprint(\"Hello from Python on EC2!\")\nprint(\"OS:\", platform.platform())\n\nHello from Python on EC2!\nOS: Linux-6.14.0-1018-aws-x86_64-with-glibc2.39"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Welcome",
     "section": "",
-    "text": "Hello, World!\nWelcome to my Quarto website. ## Links - GitHub: https://github.com/esshak-bu"
+    "text": "Hello, World!\nWelcome to my Quarto website. ## Links - GitHub: https://github.com/esshak-bu\n\nimport platform\nprint(\"Hello from Python on EC2!\")\nprint(\"OS:\", platform.platform())\n\nHello from Python on EC2!\nOS: Linux-6.14.0-1018-aws-x86_64-with-glibc2.39"
   }
 ]
