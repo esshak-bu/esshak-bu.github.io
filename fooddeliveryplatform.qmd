@@ -1,0 +1,75 @@
+---
+title: "Food Delivery Platform Analysis"
+subtitle: 
+format: html
+---
+Domain Context
+Core Purpose:
+A comprehensive dataset capturing the full lifecycle of a digital food-delivery marketplace—linking customers → restaurants → couriers through orders, items, and deliveries.
+
+What the Database Represents
+Operational backbone of a two-sided platform (customers + restaurants + couriers).
+Tracks every stage of fulfillment: order placement → food preparation → pickup → delivery.
+
+Key Insights Enabled
+Customer behavior: sign-up trends, location clusters, lifetime value.
+Restaurant performance: cuisine mix, prep speed, menu profitability.
+Courier logistics: delivery times, distance, efficiency, service reliability.
+Marketplace health: cancellations, bottlenecks, supply–demand balance.
+
+How the Schema Works
+customers – identity & location for sgiegmentation and retention analysis.
+orders – revenue engine; shows demand patterns, fees, and operational success/failure.
+restaurants → menu_items → order_items – maps the entire purchasing funnel for menu mix and item-level economics.
+deliveries – connects orders to delivery partners; enables calculation of delivery duration, tips, and cost-to-serve.
+
+Key Business Processes Supported:
+Customer Acquisition & Lifecycle Management
+Menu Publishing & Restaurant Supply Management
+Order Placement & Transaction Processing
+Order Composition & Item-Level Economics
+Courier Assignment, Route Execution & Delivery Performance
+Marketplace Coordination & Service Quality Monitoring
+
+ERD
+
+Data: Online food-delivery 
+
+Core activities:
+Customers browse menus & place orders
+Restaurants prepare food
+Delivery partner pick up & delivery
+
+ERD: Min-Max Cardinality notation
+Customers (1,1) ——— (0,*) Orders
+Each order belongs to exactly one customer
+An customer may have 0 to many orders
+Delivery_partners (1,1) ——— (0,*) Deliveries
+Each deliveries must always have 1 driver
+Each driver may have 0 to many deliveries
+
+Key SQL Scripts
+1.Which delivery partners are fastest and which are slowest?
+Delivery speed varies clearly across delivery partners.
+Fastest drivers (Patty Holt, Shelley Lucas, Bridget Summers) average about 22–23 minutes per delivery.
+Slowest drivers (Luke Peterson, Randy Kent, Joseph Lopez, Martha Torres) average about 27 minutes per delivery.
+The ~5-minute gap between fastest and slowest drivers can impact customer satisfaction and reliability.
+
+Outputs the total cost of each customer's orders including the delivery fee and tip
+This problem aims to see how much different customers spend on delivery. The problem is complex using two layers of window functions to calculate. Depending on each customer’s spending habits, delivery services can more effectively target customers that frequently deliver. Especially since delivery apps take a cut of the price of the meal, big spenders are invaluable to their business model.
+
+ML Problem: Approximate the time of delivery
+For our ML problem, we employed multiple regression types to estimate the time of delivery. The lasso regression in particular gave interesting insights into potential contributors for long delivery times. Rather than distance being the most impactful feature like we hypothesized, we actually found that being in boston had the largest effect on delivery times of any variable. This is likely attributed to omitted variable bias from the lack of variables such as traffic and street layout that severly delay urban deliveries.
+
+LIMITATIONS
+& RECOMMENDATION
+
+Limitations:
+Too many features ⟶ model becomes generic
+Data is not well segmented ⟶ limits accuracy of predictions
+Only 10 months of data ⟶ cannot analyze yearly seasonality
+Recommendations:
+Add features for time-of-day and day-of-week timing 
+Break dataset down to homogenous groupings for improved predictability (ex: New York deliveries, bike-only deliveries)
+
+Example: predict time of a New York bike delivery on a Friday night at 6 pm

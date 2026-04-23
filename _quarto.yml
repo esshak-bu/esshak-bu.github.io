@@ -10,6 +10,13 @@ website:
         text: Home
       - href: about.qmd
         text: About
+      - href: projects.qmd
+        text: Projects
+      - href: Resume_EsshaKhan.pdf
+        text: Resume
+      - href: contact.qmd
+        text: Contact
+
 
 format:
   html:

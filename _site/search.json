@@ -2,22 +2,36 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "About Me",
     "section": "",
-    "text": "I’m a graduate student in Applied Business Analytics."
+    "text": "Hi I’m Essha Khan I’m Master’s candidate in Applied Business Data Analytics at Boston University with a strong interest in bridging data analytics, machine learning, and business strategy. My academic background, combined with hands on experience in Python, SQL, and data visualization tools such as Power BI and Plotly, has equipped me to transform complex datasets into actionable insights. I am particularly interested in understanding how data can drive decision making in real world business contexts. My recent work includes building predictive models, analyzing large scale job market datasets using PySpark and AWS, and exploring financial data to uncover trends and patterns. These experiences have strengthened my ability to work across the full data pipeline from data cleaning and feature engineering to modeling and interpretation. Professionally, I am interested in pursuing roles in data analytics or product analytics, where I can combine my analytical skills with my background in design and user experience. My goal is to contribute to data driven products and strategies that not only solve business problems but also create meaningful user impact."
   },
   {
     "objectID": "about.html#skills",
     "href": "about.html#skills",
-    "title": "About",
+    "title": "About Me",
     "section": "Skills",
-    "text": "Skills\n\nSQL, Python, R\nData modeling, dashboards, storytelling\nForecasting, regression/ML, optimization"
+    "text": "Skills\n• Programming Languages: Python, SQL, R • Data Analysis: pandas, data cleaning, exploratory data analysis, feature engineering • Big Data Tools: PySpark, Apache Spark • Data Visualization: Power BI, Plotly, matplotlib • Cloud Technologies: AWS (EC2, data workflows) • Machine Learning: regression modeling, predictive analytics • Tools & Platforms: Jupyter Notebook, Git, Excel • Core Strengths: analytical thinking, problem solving, attention to detail • Additional Strengths: data storytelling, business insight, user focused design mindset"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Welcome",
     "section": "",
-    "text": "Hello, World!\nWelcome to my Quarto website. ## Links - GitHub: https://github.com/esshak-bu\n\nfrom pyspark.sql import SparkSession\n\nspark = SparkSession.builder.getOrCreate()\ndf = spark.createDataFrame(\n    [(\"A\", 10), (\"B\", 20)],\n    [\"category\", \"value\"]\n)\ndf.show()\n\nWARNING: Using incubator modules: jdk.incubator.vector\nUsing Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties\nSetting default log level to \"WARN\".\nTo adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).\n26/01/31 19:48:04 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable\n[Stage 0:&gt;                                                          (0 + 1) / 1]                                                                                \n\n\n+--------+-----+\n|category|value|\n+--------+-----+\n|       A|   10|\n|       B|   20|\n+--------+-----+"
+    "text": "Hello, World!\nWelcome to my Quarto website. ## Links - GitHub: https://github.com/esshak-bu\n\nimport platform\nprint(\"Hello from Python on EC2!\")\nprint(\"OS:\", platform.platform())\n\nHello from Python on EC2!\nOS: Linux-6.8.0-1051-aws-x86_64-with-glibc2.35"
+  },
+  {
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "Contact",
+    "section": "",
+    "text": "Feel free to reach out for opportunities, collaborations, or just to connect.\n\n\n📧 Email:  esshak@bu.edu \n\n\n🔗 LinkedIn:  linkedin.com/in/essha-khan"
+  },
+  {
+    "objectID": "contact.html#contact",
+    "href": "contact.html#contact",
+    "title": "Contact",
+    "section": "",
+    "text": "Feel free to reach out for opportunities, collaborations, or just to connect.\n\n\n📧 Email:  esshak@bu.edu \n\n\n🔗 LinkedIn:  linkedin.com/in/essha-khan"
   }
 ]

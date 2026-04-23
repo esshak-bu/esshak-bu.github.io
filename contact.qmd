@@ -1,0 +1,26 @@
+---
+title: "Contact"
+format: html
+---
+
+## Contact
+
+Feel free to reach out for opportunities, collaborations, or just to connect.
+
+<div style="margin-top: 20px;">
+
+  <p style="font-size: 18px;">
+    📧 <strong>Email:</strong><br>
+    <a href="mailto:esshak@bu.edu" style="text-decoration: none; color: #000;">
+      esshak@bu.edu
+    </a>
+  </p>
+
+  <p style="font-size: 18px; margin-top: 20px;">
+    🔗 <strong>LinkedIn:</strong><br>
+    <a href="https://www.linkedin.com/in/essha-khan/" target="_blank" style="text-decoration: none; color: #000;">
+      linkedin.com/in/essha-khan
+    </a>
+  </p>
+
+</div>
