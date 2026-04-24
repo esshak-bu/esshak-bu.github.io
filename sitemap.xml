@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://esshak-bu.github.io/about.html</loc>
-    <lastmod>2026-01-31T20:10:50.219Z</lastmod>
+    <loc>https://esshak-bu.github.io/fooddeliveryplatform.html</loc>
+    <lastmod>2026-04-24T02:44:14.276Z</lastmod>
   </url>
   <url>
     <loc>https://esshak-bu.github.io/index.html</loc>
-    <lastmod>2026-01-31T20:00:18.367Z</lastmod>
+    <lastmod>2026-04-24T02:44:14.276Z</lastmod>
+  </url>
+  <url>
+    <loc>https://esshak-bu.github.io/about.html</loc>
+    <lastmod>2026-04-24T02:44:14.276Z</lastmod>
+  </url>
+  <url>
+    <loc>https://esshak-bu.github.io/contact.html</loc>
+    <lastmod>2026-04-24T02:44:14.276Z</lastmod>
   </url>
 </urlset>

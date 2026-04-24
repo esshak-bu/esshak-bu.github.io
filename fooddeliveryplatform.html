@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Delivering Insights From a Food Delivery Marketplace – Essha Khan</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-4897d45d2f75ed4f519693be625836c5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Essha Khan</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./fooddeliveryplatform.html" aria-current="page"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Resume_EsshaKhan.pdf"> 
+<span class="menu-text">Resume</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./contact.html"> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#from-order-to-doorstep" id="toc-from-order-to-doorstep" class="nav-link" data-scroll-target="#from-order-to-doorstep">🍔 From Order to Doorstep</a></li>
+  <li><a href="#business-context" id="toc-business-context" class="nav-link" data-scroll-target="#business-context">Business Context</a>
+  <ul class="collapse">
+  <li><a href="#what-this-database-captures" id="toc-what-this-database-captures" class="nav-link" data-scroll-target="#what-this-database-captures">What this database captures</a></li>
+  </ul></li>
+  <li><a href="#why-this-project-matters" id="toc-why-this-project-matters" class="nav-link" data-scroll-target="#why-this-project-matters">Why This Project Matters</a></li>
+  <li><a href="#database-structure-and-erd" id="toc-database-structure-and-erd" class="nav-link" data-scroll-target="#database-structure-and-erd">Database Structure and ERD</a>
+  <ul class="collapse">
+  <li><a href="#core-entities" id="toc-core-entities" class="nav-link" data-scroll-target="#core-entities">Core entities</a></li>
+  <li><a href="#core-business-processes-supported" id="toc-core-business-processes-supported" class="nav-link" data-scroll-target="#core-business-processes-supported">Core business processes supported</a></li>
+  <li><a href="#erd-relationships" id="toc-erd-relationships" class="nav-link" data-scroll-target="#erd-relationships">ERD relationships</a></li>
+  <li><a href="#erd" id="toc-erd" class="nav-link" data-scroll-target="#erd">ERD</a></li>
+  </ul></li>
+  <li><a href="#analytical-focus" id="toc-analytical-focus" class="nav-link" data-scroll-target="#analytical-focus">Analytical Focus</a></li>
+  <li><a href="#sql-analysis-and-business-insights" id="toc-sql-analysis-and-business-insights" class="nav-link" data-scroll-target="#sql-analysis-and-business-insights">SQL Analysis and Business Insights</a></li>
+  <li><a href="#delivery-partner-performance" id="toc-delivery-partner-performance" class="nav-link" data-scroll-target="#delivery-partner-performance">1. Delivery Partner Performance 🚴</a>
+  <ul class="collapse">
+  <li><a href="#why-this-matters" id="toc-why-this-matters" class="nav-link" data-scroll-target="#why-this-matters">Why this matters</a></li>
+  </ul></li>
+  <li><a href="#customer-spending-and-delivery-economics" id="toc-customer-spending-and-delivery-economics" class="nav-link" data-scroll-target="#customer-spending-and-delivery-economics">2. Customer Spending and Delivery Economics 💳</a>
+  <ul class="collapse">
+  <li><a href="#business-value-of-this-analysis" id="toc-business-value-of-this-analysis" class="nav-link" data-scroll-target="#business-value-of-this-analysis">Business value of this analysis</a></li>
+  </ul></li>
+  <li><a href="#machine-learning-problem" id="toc-machine-learning-problem" class="nav-link" data-scroll-target="#machine-learning-problem">Machine Learning Problem</a></li>
+  <li><a href="#predicting-delivery-time" id="toc-predicting-delivery-time" class="nav-link" data-scroll-target="#predicting-delivery-time">Predicting Delivery Time ⏱️</a>
+  <ul class="collapse">
+  <li><a href="#what-i-expected" id="toc-what-i-expected" class="nav-link" data-scroll-target="#what-i-expected">What I expected</a></li>
+  <li><a href="#what-i-found" id="toc-what-i-found" class="nav-link" data-scroll-target="#what-i-found">What I found</a></li>
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation">Interpretation</a></li>
+  </ul></li>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a>
+  <ul class="collapse">
+  <li><a href="#main-insights-from-the-project" id="toc-main-insights-from-the-project" class="nav-link" data-scroll-target="#main-insights-from-the-project">Main insights from the project</a></li>
+  </ul></li>
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a>
+  <ul class="collapse">
+  <li><a href="#constraints-in-the-dataset" id="toc-constraints-in-the-dataset" class="nav-link" data-scroll-target="#constraints-in-the-dataset">Constraints in the dataset</a></li>
+  </ul></li>
+  <li><a href="#recommendations" id="toc-recommendations" class="nav-link" data-scroll-target="#recommendations">Recommendations</a>
+  <ul class="collapse">
+  <li><a href="#recommended-next-steps" id="toc-recommended-next-steps" class="nav-link" data-scroll-target="#recommended-next-steps">Recommended next steps</a></li>
+  <li><a href="#example-of-a-stronger-future-prediction-problem" id="toc-example-of-a-stronger-future-prediction-problem" class="nav-link" data-scroll-target="#example-of-a-stronger-future-prediction-problem">Example of a stronger future prediction problem</a></li>
+  </ul></li>
+  <li><a href="#final-reflection" id="toc-final-reflection" class="nav-link" data-scroll-target="#final-reflection">Final Reflection</a></li>
+  <li><a href="#tools-used" id="toc-tools-used" class="nav-link" data-scroll-target="#tools-used">Tools Used</a></li>
+  <li><a href="#portfolio-note" id="toc-portfolio-note" class="nav-link" data-scroll-target="#portfolio-note">Portfolio Note</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Delivering Insights From a Food Delivery Marketplace</h1>
+<p class="subtitle lead">A data storytelling case study on customers, restaurants, couriers, and operational performance</p>
+</div>
+
+
+
+<div class="quarto-title-meta column-page-left">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<style>
+.hero-box {
+  background: linear-gradient(135deg, #fff4e6, #ffe8cc);
+  padding: 2rem;
+  border-radius: 18px;
+  margin-bottom: 2rem;
+  border-left: 8px solid #ff922b;
+}
+
+.section-box {
+  background: #fffdf8;
+  padding: 1.5rem;
+  border-radius: 16px;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #f1e3d3;
+}
+
+.metric-card {
+  background: #fff5f5;
+  padding: 1rem;
+  border-radius: 14px;
+  border-left: 6px solid #fa5252;
+  margin-bottom: 1rem;
+}
+
+.soft-note {
+  font-size: 1.05rem;
+  color: #495057;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+}
+</style>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+</section>
+<section id="from-order-to-doorstep" class="level2 hero-box">
+<h2 class="anchored" data-anchor-id="from-order-to-doorstep">🍔 From Order to Doorstep</h2>
+<p>This project explores the operational backbone of a digital food delivery marketplace. Using relational data across customers, restaurants, menu items, orders, and deliveries, I analyzed how the platform functions end to end and uncovered insights about customer spending, restaurant operations, courier efficiency, and delivery performance.</p>
+</section>
+<p>In a food delivery marketplace, the customer experience depends on much more than simply placing an order. Behind every completed transaction is a chain of coordinated actions involving restaurants, delivery partners, and the platform itself. This project examines that full lifecycle and shows how structured data can be used to evaluate both business performance and service quality.</p>
+<section id="business-context" class="level2">
+<h2 class="anchored" data-anchor-id="business-context">Business Context</h2>
+<p>Digital food delivery platforms operate as a two sided marketplace connecting customers with restaurants, while also relying on delivery partners to fulfill the final step of service. This makes them especially data rich and operationally complex.</p>
+<p>The dataset represents the full journey of an order from the moment a customer browses the app to the point where food arrives at their doorstep. Because each entity is connected through a relational schema, the database makes it possible to evaluate both financial and operational outcomes across the platform.</p>
+<section id="what-this-database-captures" class="level3 section-box">
+<h3 class="anchored" data-anchor-id="what-this-database-captures">What this database captures</h3>
+<ul>
+<li>Customer identity, activity, and location for segmentation and retention analysis</li>
+<li>Restaurant supply, cuisine offerings, and menu level sales</li>
+<li>Orders, fees, and transaction outcomes as the revenue engine of the platform</li>
+<li>Delivery execution, including partner assignment, timing, and cost to serve</li>
+</ul>
+</section>
+</section>
+<section id="why-this-project-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-this-project-matters">Why This Project Matters</h2>
+<p>This project goes beyond simple reporting. It reflects the types of business questions that matter in real marketplace environments.</p>
+<p>For example:</p>
+<ul>
+<li>Which customers generate the most value over time</li>
+<li>Which restaurants or menu items are most profitable</li>
+<li>Which delivery partners are most efficient</li>
+<li>Where delays, bottlenecks, or quality issues may be affecting service</li>
+</ul>
+<p>These questions sit at the intersection of analytics, operations, and strategy, making this a strong example of how data can be used to support decision making in a real business setting.</p>
+</section>
+<section id="database-structure-and-erd" class="level2">
+<h2 class="anchored" data-anchor-id="database-structure-and-erd">Database Structure and ERD</h2>
+<p>The schema is designed to model the full operational workflow of the marketplace.</p>
+<section id="core-entities" class="level3">
+<h3 class="anchored" data-anchor-id="core-entities">Core entities</h3>
+<p><strong>customers</strong> stores customer identity and location information, enabling segmentation and lifecycle analysis.</p>
+<p><strong>orders</strong> acts as the central transaction table and captures demand, revenue, fees, and fulfillment outcomes.</p>
+<p><strong>restaurants</strong>, <strong>menu_items</strong>, and <strong>order_items</strong> together represent the purchasing funnel, allowing analysis at both the restaurant and item level.</p>
+<p><strong>deliveries</strong> connects completed orders to delivery partners, making it possible to evaluate speed, reliability, and cost efficiency.</p>
+</section>
+<section id="core-business-processes-supported" class="level3">
+<h3 class="anchored" data-anchor-id="core-business-processes-supported">Core business processes supported</h3>
+<ul>
+<li>Customer acquisition and lifecycle management</li>
+<li>Restaurant onboarding and menu publishing</li>
+<li>Order placement and transaction processing</li>
+<li>Item level sales and profitability analysis</li>
+<li>Courier assignment and delivery execution</li>
+<li>Marketplace coordination and service quality monitoring</li>
+</ul>
+</section>
+<section id="erd-relationships" class="level3">
+<h3 class="anchored" data-anchor-id="erd-relationships">ERD relationships</h3>
+<ul>
+<li><p>Customers (1,1) — (0,*) Orders<br>
+Each order belongs to exactly one customer, while a customer may place zero to many orders.</p></li>
+<li><p>Delivery Partners (1,1) — (0,*) Deliveries Each delivery must be handled by exactly one driver, while a driver may complete zero to many deliveries.</p></li>
+</ul>
+</section>
+<section id="erd" class="level3">
+<h3 class="anchored" data-anchor-id="erd">ERD</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="visuals/ERD.png" class="img-fluid figure-img" style="width:85.0%"></p>
+<figcaption>Entity Relationship Diagram</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="analytical-focus" class="level2">
+<h2 class="anchored" data-anchor-id="analytical-focus">Analytical Focus</h2>
+<p>My goal was to turn the relational structure of this database into actionable business insight. I approached the project through both SQL analysis and machine learning, using the database not just to answer static questions, but to understand how the marketplace behaves operationally.</p>
+</section>
+<section id="sql-analysis-and-business-insights" class="level2">
+<h2 class="anchored" data-anchor-id="sql-analysis-and-business-insights">SQL Analysis and Business Insights</h2>
+</section>
+<section id="delivery-partner-performance" class="level2">
+<h2 class="anchored" data-anchor-id="delivery-partner-performance">1. Delivery Partner Performance 🚴</h2>
+<p>One of the clearest operational questions was identifying which delivery partners were the fastest and which were the slowest.</p>
+<p>Using SQL, I calculated average delivery times by partner and compared their performance across completed deliveries.</p>
+<div class="metric-card">
+<p><strong>Key finding:</strong> Delivery speed varied clearly across delivery partners.</p>
+</div>
+<p><img src="visuals/Query1.png" class="img-fluid quarto-figure quarto-figure-center" style="width:85.0%" alt="Entity Relationship Diagram"> <img src="visuals/Output1.png" class="img-fluid quarto-figure quarto-figure-center" style="width:85.0%" alt="Entity Relationship Diagram"></p>
+<p>The fastest drivers, including <strong>Patty Holt</strong>, <strong>Shelley Lucas</strong>, and <strong>Bridget Summers</strong>, averaged roughly <strong>22 to 23 minutes per delivery</strong>. On the other end, drivers such as <strong>Luke Peterson</strong>, <strong>Randy Kent</strong>, <strong>Joseph Lopez</strong>, and <strong>Martha Torres</strong> averaged closer to <strong>27 minutes per delivery</strong>.</p>
+<p>That roughly <strong>5 minute gap</strong> is meaningful in a delivery marketplace. Even small delays can influence customer satisfaction, repeat ordering behavior, and perceptions of reliability.</p>
+<section id="why-this-matters" class="level3">
+<h3 class="anchored" data-anchor-id="why-this-matters">Why this matters</h3>
+<p>This type of analysis can help a delivery platform:</p>
+<ul>
+<li>identify high performing couriers</li>
+<li>investigate operational inefficiencies</li>
+<li>improve dispatching decisions</li>
+<li>support service quality monitoring</li>
+</ul>
+</section>
+</section>
+<section id="customer-spending-and-delivery-economics" class="level2">
+<h2 class="anchored" data-anchor-id="customer-spending-and-delivery-economics">2. Customer Spending and Delivery Economics 💳</h2>
+<p>Another question I explored was how much individual customers spend across the platform once delivery fees and tips are included.</p>
+<p>This analysis required layered SQL logic and window functions to calculate the full cost of each customer’s orders over time. Rather than looking only at food subtotal, I focused on the broader contribution each customer makes to the delivery business model.</p>
+<div class="metric-card">
+<p><strong>Key finding:</strong> Customer value is not just about order count, but also about total spend including fees and tips.</p>
+</div>
+<p><img src="visuals/Query2.png" class="img-fluid quarto-figure quarto-figure-center" style="width:85.0%" alt="Entity Relationship Diagram"> <img src="visuals/Output2.png" class="img-fluid quarto-figure quarto-figure-center" style="width:85.0%" alt="Entity Relationship Diagram"></p>
+<p>This matters because delivery platforms often earn a share of meal revenue while also benefiting from service fees and delivery charges. Customers who order frequently and spend more per transaction are especially valuable to long term marketplace profitability.</p>
+<section id="business-value-of-this-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="business-value-of-this-analysis">Business value of this analysis</h3>
+<ul>
+<li>supports customer segmentation</li>
+<li>helps identify high value users</li>
+<li>informs targeted retention or loyalty strategies</li>
+<li>provides a clearer picture of lifetime value contribution</li>
+</ul>
+</section>
+</section>
+<section id="machine-learning-problem" class="level2">
+<h2 class="anchored" data-anchor-id="machine-learning-problem">Machine Learning Problem</h2>
+</section>
+<section id="predicting-delivery-time" class="level2">
+<h2 class="anchored" data-anchor-id="predicting-delivery-time">Predicting Delivery Time ⏱️</h2>
+<p>To extend the project beyond descriptive analytics, I framed a machine learning problem around <strong>approximating delivery time</strong>.</p>
+<p>Delivery time is a critical operational metric because it affects customer satisfaction, platform efficiency, and courier planning. I tested multiple regression based approaches to estimate how long a delivery would take and to understand which variables were most strongly associated with delays.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="visuals/ML.png" class="img-fluid figure-img" style="width:85.0%"></p>
+<figcaption>Entity Relationship Diagram</figcaption>
+</figure>
+</div>
+<section id="what-i-expected" class="level3">
+<h3 class="anchored" data-anchor-id="what-i-expected">What I expected</h3>
+<p>Initially, I hypothesized that <strong>distance</strong> would be the strongest driver of delivery time.</p>
+</section>
+<section id="what-i-found" class="level3">
+<h3 class="anchored" data-anchor-id="what-i-found">What I found</h3>
+<p>Interestingly, the <strong>lasso regression</strong> results suggested something different. The variable with the strongest impact on longer delivery times was not distance, but <strong>being in Boston</strong>.</p>
+<div class="metric-card">
+<p><strong>Unexpected insight:</strong> Geographic context appeared to matter more than raw distance alone.</p>
+</div>
+<p>This is likely due to omitted variable bias. The model did not include important real world factors such as traffic, road design, parking difficulty, and urban density, all of which can severely affect city deliveries.</p>
+</section>
+<section id="interpretation" class="level3">
+<h3 class="anchored" data-anchor-id="interpretation">Interpretation</h3>
+<p>This result reinforced an important lesson in analytics: the most intuitive variable is not always the most explanatory one. In real business settings, hidden operational complexity often shapes outcomes more than we initially expect.</p>
+</section>
+</section>
+<section id="key-takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h2>
+<section id="main-insights-from-the-project" class="level3 section-box">
+<h3 class="anchored" data-anchor-id="main-insights-from-the-project">Main insights from the project</h3>
+<ul>
+<li>Food delivery marketplaces can be analyzed as a full lifecycle system rather than a set of isolated transactions</li>
+<li>SQL is highly effective for uncovering operational trends in courier performance and customer value</li>
+<li>Small differences in delivery speed can have meaningful effects on customer experience</li>
+<li>Delivery economics become more informative when fees and tips are included in customer spending analysis</li>
+<li>Predictive modeling can reveal hidden drivers of performance, even when the model is imperfect</li>
+</ul>
+</section>
+</section>
+<section id="limitations" class="level2">
+<h2 class="anchored" data-anchor-id="limitations">Limitations</h2>
+<p>No analysis is complete without acknowledging its limits.</p>
+<section id="constraints-in-the-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="constraints-in-the-dataset">Constraints in the dataset</h3>
+<ul>
+<li>Too many features made the model more generic and less interpretable</li>
+<li>The data was not well segmented, which reduced prediction accuracy</li>
+<li>The dataset covered only <strong>10 months</strong>, so yearly seasonality could not be analyzed</li>
+</ul>
+</section>
+</section>
+<section id="recommendations" class="level2">
+<h2 class="anchored" data-anchor-id="recommendations">Recommendations</h2>
+<p>Based on the findings, I would recommend expanding both the feature set and the segmentation strategy for future analysis.</p>
+<section id="recommended-next-steps" class="level3">
+<h3 class="anchored" data-anchor-id="recommended-next-steps">Recommended next steps</h3>
+<ul>
+<li>Add features for <strong>time of day</strong> and <strong>day of week</strong></li>
+<li>Break the dataset into more homogeneous groups for stronger prediction accuracy</li>
+<li>Build separate models for specific contexts, such as city based deliveries or bike only deliveries</li>
+<li>Include operational variables such as traffic conditions and street layout where possible</li>
+</ul>
+</section>
+<section id="example-of-a-stronger-future-prediction-problem" class="level3">
+<h3 class="anchored" data-anchor-id="example-of-a-stronger-future-prediction-problem">Example of a stronger future prediction problem</h3>
+<p>Instead of predicting all deliveries at once, a more targeted model could estimate:</p>
+<p><strong>How long will a New York bike delivery take on a Friday night at 6 PM?</strong></p>
+<p>This type of narrower prediction would likely be much more useful for real operational planning and customer facing delivery estimates.</p>
+</section>
+</section>
+<section id="final-reflection" class="level2">
+<h2 class="anchored" data-anchor-id="final-reflection">Final Reflection</h2>
+<p>This project demonstrates how structured relational data can be transformed into a business story. By combining database design, SQL analysis, and predictive modeling, I was able to explore how a digital marketplace operates across customers, restaurants, and couriers.</p>
+<p>From identifying the fastest delivery partners to examining customer spending behavior and modeling delivery times, this work reflects the kind of analysis that supports real operational and strategic decisions.</p>
+<p>For me, this project was especially valuable because it combined technical analytics with business context. It reinforced the idea that effective data analysis is not just about querying tables or building models. It is about understanding how systems work, where inefficiencies emerge, and how data can guide better decisions.</p>
+</section>
+<section id="tools-used" class="level2">
+<h2 class="anchored" data-anchor-id="tools-used">Tools Used</h2>
+<ul>
+<li>SQL</li>
+<li>Relational database design</li>
+<li>Entity relationship modeling</li>
+<li>Regression based machine learning</li>
+<li>Business analytics</li>
+<li>Operational analysis</li>
+</ul>
+</section>
+<section id="portfolio-note" class="level2">
+<h2 class="anchored" data-anchor-id="portfolio-note">Portfolio Note</h2>
+<p>This case study reflects my interest in using data analytics to solve real business problems, especially in operational and marketplace environments where customer behavior, logistics, and performance are closely connected.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/esshak-bu\.github\.io\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
