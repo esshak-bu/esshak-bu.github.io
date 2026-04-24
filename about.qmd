@@ -1,20 +1,51 @@
 ---
 title: "About Me"
+format:
+  html:
+    theme: cosmo
+    toc: false
+    page-layout: full
 ---
-![Headshot](visuals/EsshaKhan_Headshot@1x.jpg){width=70%}
+<style>
+.card {
+  border-radius: 18px !important;
+  background-color: #f8f9fa !important;
+  border: 1px solid #e9ecef !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+.section-spacing {
+  margin-top: 50px;
+}
+</style>
 
-Hi I'm Essha Khan
-I'm Master’s candidate in Applied Business Data Analytics at Boston University with a strong interest in bridging data analytics, machine learning, and business strategy. My academic background, combined with hands on experience in Python, SQL, and data visualization tools such as Power BI and Plotly, has equipped me to transform complex datasets into actionable insights.
-I am particularly interested in understanding how data can drive decision making in real world business contexts. My recent work includes building predictive models, analyzing large scale job market datasets using PySpark and AWS, and exploring financial data to uncover trends and patterns. These experiences have strengthened my ability to work across the full data pipeline from data cleaning and feature engineering to modeling and interpretation.
-Professionally, I am interested in pursuing roles in data analytics or product analytics, where I can combine my analytical skills with my background in design and user experience. My goal is to contribute to data driven products and strategies that not only solve business problems but also create meaningful user impact.
+<div style="max-width: 250px; margin: 40 px auto; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.15);">
+  <img src="visuals/EsshaKhan_Headshot@1x.jpg" style="width: 100%; height: auto; display: block;">
+</div>
 
+<br><br>
+
+::: {.card .p-4 .mb-4}
+## Hi, I'm Essha
+
+I'm a Master’s candidate in **Applied Business Data Analytics** at **Boston University** with a strong interest in bridging data analytics, machine learning, and business strategy.
+
+My academic background, combined with hands on experience in **Python, SQL, Power BI, and Plotly**, has equipped me to transform complex datasets into actionable insights.
+
+I am particularly interested in understanding how data can drive decision making in real world business contexts. My recent work includes building predictive models, analyzing large scale job market datasets using **PySpark and AWS**, and exploring financial data to uncover trends and patterns.
+
+Professionally, I am interested in pursuing roles in **data analytics** or **product analytics**, where I can combine my analytical skills with my background in design and user experience.
+:::
+
+::: {.card .p-4 .mb-4}
 ## Skills
-• Programming Languages: Python, SQL, R
-• Data Analysis: pandas, data cleaning, exploratory data analysis, feature engineering
-• Big Data Tools: PySpark, Apache Spark
-• Data Visualization: Power BI, Plotly, matplotlib
-• Cloud Technologies: AWS (EC2, data workflows)
-• Machine Learning: regression modeling, predictive analytics
-• Tools & Platforms: Jupyter Notebook, Git, Excel
-• Core Strengths: analytical thinking, problem solving, attention to detail
-• Additional Strengths: data storytelling, business insight, user focused design mindset
+
+- **Programming Languages:** Python, SQL, R  
+- **Data Analysis:** pandas, data cleaning, exploratory data analysis, feature engineering  
+- **Big Data Tools:** PySpark, Apache Spark  
+- **Data Visualization:** Power BI, Plotly, matplotlib  
+- **Cloud Technologies:** AWS EC2, data workflows  
+- **Machine Learning:** regression modeling, predictive analytics  
+- **Tools & Platforms:** Jupyter Notebook, Git, Excel  
+- **Core Strengths:** analytical thinking, problem solving, attention to detail  
+- **Additional Strengths:** data storytelling, business insight, user focused design mindset  
+:::

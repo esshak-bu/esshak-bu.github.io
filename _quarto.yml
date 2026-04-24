@@ -10,7 +10,7 @@ website:
         text: Home
       - href: about.qmd
         text: About
-      - href: projects.qmd
+      - href: fooddeliveryplatform.qmd
         text: Projects
       - href: Resume_EsshaKhan.pdf
         text: Resume

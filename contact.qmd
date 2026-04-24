@@ -1,10 +1,11 @@
 ---
 title: "Contact"
-format: html
+format:
+  html:
+    theme: cosmo
+    toc: false
+    page-layout: full
 ---
-
-## Contact
-
 Feel free to reach out for opportunities, collaborations, or just to connect.
 
 <div style="margin-top: 20px;">
