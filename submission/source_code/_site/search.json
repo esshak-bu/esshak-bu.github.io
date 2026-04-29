@@ -1,0 +1,191 @@
+[
+  {
+    "objectID": "fooddeliveryplatform.html",
+    "href": "fooddeliveryplatform.html",
+    "title": "Delivering Insights From a Food Delivery Marketplace",
+    "section": "",
+    "text": "In a food delivery marketplace, the customer experience depends on much more than simply placing an order. Behind every completed transaction is a chain of coordinated actions involving restaurants, delivery partners, and the platform itself. This project examines that full lifecycle and shows how structured data can be used to evaluate both business performance and service quality."
+  },
+  {
+    "objectID": "fooddeliveryplatform.html#from-order-to-doorstep",
+    "href": "fooddeliveryplatform.html#from-order-to-doorstep",
+    "title": "Delivering Insights From a Food Delivery Marketplace",
+    "section": "🍔 From Order to Doorstep",
+    "text": "🍔 From Order to Doorstep\nThis project explores the operational backbone of a digital food delivery marketplace. Using relational data across customers, restaurants, menu items, orders, and deliveries, I analyzed how the platform functions end to end and uncovered insights about customer spending, restaurant operations, courier efficiency, and delivery performance."
+  },
+  {
+    "objectID": "fooddeliveryplatform.html#business-context",
+    "href": "fooddeliveryplatform.html#business-context",
+    "title": "Delivering Insights From a Food Delivery Marketplace",
+    "section": "Business Context",
+    "text": "Business Context\nDigital food delivery platforms operate as a two sided marketplace connecting customers with restaurants, while also relying on delivery partners to fulfill the final step of service. This makes them especially data rich and operationally complex.\nThe dataset represents the full journey of an order from the moment a customer browses the app to the point where food arrives at their doorstep. Because each entity is connected through a relational schema, the database makes it possible to evaluate both financial and operational outcomes across the platform.\n\nWhat this database captures\n\nCustomer identity, activity, and location for segmentation and retention analysis\nRestaurant supply, cuisine offerings, and menu level sales\nOrders, fees, and transaction outcomes as the revenue engine of the platform\nDelivery execution, including partner assignment, timing, and cost to serve"
+  },
+  {
+    "objectID": "fooddeliveryplatform.html#why-this-project-matters",
+    "href": "fooddeliveryplatform.html#why-this-project-matters",
+    "title": "Delivering Insights From a Food Delivery Marketplace",
+    "section": "Why This Project Matters",
+    "text": "Why This Project Matters\nThis project goes beyond simple reporting. It reflects the types of business questions that matter in real marketplace environments.\nFor example:\n\nWhich customers generate the most value over time\nWhich restaurants or menu items are most profitable\nWhich delivery partners are most efficient\nWhere delays, bottlenecks, or quality issues may be affecting service\n\nThese questions sit at the intersection of analytics, operations, and strategy, making this a strong example of how data can be used to support decision making in a real business setting."
+  },
+  {
+    "objectID": "fooddeliveryplatform.html#database-structure-and-erd",
+    "href": "fooddeliveryplatform.html#database-structure-and-erd",
+    "title": "Delivering Insights From a Food Delivery Marketplace",
+    "section": "Database Structure and ERD",
+    "text": "Database Structure and ERD\nThe schema is designed to model the full operational workflow of the marketplace.\n\nCore entities\ncustomers stores customer identity and location information, enabling segmentation and lifecycle analysis.\norders acts as the central transaction table and captures demand, revenue, fees, and fulfillment outcomes.\nrestaurants, menu_items, and order_items together represent the purchasing funnel, allowing analysis at both the restaurant and item level.\ndeliveries connects completed orders to delivery partners, making it possible to evaluate speed, reliability, and cost efficiency.\n\n\nCore business processes supported\n\nCustomer acquisition and lifecycle management\nRestaurant onboarding and menu publishing\nOrder placement and transaction processing\nItem level sales and profitability analysis\nCourier assignment and delivery execution\nMarketplace coordination and service quality monitoring\n\n\n\nERD relationships\n\nCustomers (1,1) — (0,*) Orders\nEach order belongs to exactly one customer, while a customer may place zero to many orders.\nDelivery Partners (1,1) — (0,*) Deliveries Each delivery must be handled by exactly one driver, while a driver may complete zero to many deliveries.\n\n\n\nERD\n\n\n\nEntity Relationship Diagram"
+  },
+  {
+    "objectID": "fooddeliveryplatform.html#analytical-focus",
+    "href": "fooddeliveryplatform.html#analytical-focus",
+    "title": "Delivering Insights From a Food Delivery Marketplace",
+    "section": "Analytical Focus",
+    "text": "Analytical Focus\nMy goal was to turn the relational structure of this database into actionable business insight. I approached the project through both SQL analysis and machine learning, using the database not just to answer static questions, but to understand how the marketplace behaves operationally."
+  },
+  {
+    "objectID": "fooddeliveryplatform.html#sql-analysis-and-business-insights",
+    "href": "fooddeliveryplatform.html#sql-analysis-and-business-insights",
+    "title": "Delivering Insights From a Food Delivery Marketplace",
+    "section": "SQL Analysis and Business Insights",
+    "text": "SQL Analysis and Business Insights"
+  },
+  {
+    "objectID": "fooddeliveryplatform.html#delivery-partner-performance",
+    "href": "fooddeliveryplatform.html#delivery-partner-performance",
+    "title": "Delivering Insights From a Food Delivery Marketplace",
+    "section": "1. Delivery Partner Performance 🚴",
+    "text": "1. Delivery Partner Performance 🚴\nOne of the clearest operational questions was identifying which delivery partners were the fastest and which were the slowest.\nUsing SQL, I calculated average delivery times by partner and compared their performance across completed deliveries.\n\nKey finding: Delivery speed varied clearly across delivery partners.\n\n \nThe fastest drivers, including Patty Holt, Shelley Lucas, and Bridget Summers, averaged roughly 22 to 23 minutes per delivery. On the other end, drivers such as Luke Peterson, Randy Kent, Joseph Lopez, and Martha Torres averaged closer to 27 minutes per delivery.\nThat roughly 5 minute gap is meaningful in a delivery marketplace. Even small delays can influence customer satisfaction, repeat ordering behavior, and perceptions of reliability.\n\nWhy this matters\nThis type of analysis can help a delivery platform:\n\nidentify high performing couriers\ninvestigate operational inefficiencies\nimprove dispatching decisions\nsupport service quality monitoring"
+  },
+  {
+    "objectID": "fooddeliveryplatform.html#customer-spending-and-delivery-economics",
+    "href": "fooddeliveryplatform.html#customer-spending-and-delivery-economics",
+    "title": "Delivering Insights From a Food Delivery Marketplace",
+    "section": "2. Customer Spending and Delivery Economics 💳",
+    "text": "2. Customer Spending and Delivery Economics 💳\nAnother question I explored was how much individual customers spend across the platform once delivery fees and tips are included.\nThis analysis required layered SQL logic and window functions to calculate the full cost of each customer’s orders over time. Rather than looking only at food subtotal, I focused on the broader contribution each customer makes to the delivery business model.\n\nKey finding: Customer value is not just about order count, but also about total spend including fees and tips.\n\n \nThis matters because delivery platforms often earn a share of meal revenue while also benefiting from service fees and delivery charges. Customers who order frequently and spend more per transaction are especially valuable to long term marketplace profitability.\n\nBusiness value of this analysis\n\nsupports customer segmentation\nhelps identify high value users\ninforms targeted retention or loyalty strategies\nprovides a clearer picture of lifetime value contribution"
+  },
+  {
+    "objectID": "fooddeliveryplatform.html#machine-learning-problem",
+    "href": "fooddeliveryplatform.html#machine-learning-problem",
+    "title": "Delivering Insights From a Food Delivery Marketplace",
+    "section": "Machine Learning Problem",
+    "text": "Machine Learning Problem"
+  },
+  {
+    "objectID": "fooddeliveryplatform.html#predicting-delivery-time",
+    "href": "fooddeliveryplatform.html#predicting-delivery-time",
+    "title": "Delivering Insights From a Food Delivery Marketplace",
+    "section": "Predicting Delivery Time ⏱️",
+    "text": "Predicting Delivery Time ⏱️\nTo extend the project beyond descriptive analytics, I framed a machine learning problem around approximating delivery time.\nDelivery time is a critical operational metric because it affects customer satisfaction, platform efficiency, and courier planning. I tested multiple regression based approaches to estimate how long a delivery would take and to understand which variables were most strongly associated with delays.\n\n\n\nEntity Relationship Diagram\n\n\n\nWhat I expected\nInitially, I hypothesized that distance would be the strongest driver of delivery time.\n\n\nWhat I found\nInterestingly, the lasso regression results suggested something different. The variable with the strongest impact on longer delivery times was not distance, but being in Boston.\n\nUnexpected insight: Geographic context appeared to matter more than raw distance alone.\n\nThis is likely due to omitted variable bias. The model did not include important real world factors such as traffic, road design, parking difficulty, and urban density, all of which can severely affect city deliveries.\n\n\nInterpretation\nThis result reinforced an important lesson in analytics: the most intuitive variable is not always the most explanatory one. In real business settings, hidden operational complexity often shapes outcomes more than we initially expect."
+  },
+  {
+    "objectID": "fooddeliveryplatform.html#key-takeaways",
+    "href": "fooddeliveryplatform.html#key-takeaways",
+    "title": "Delivering Insights From a Food Delivery Marketplace",
+    "section": "Key Takeaways",
+    "text": "Key Takeaways\n\nMain insights from the project\n\nFood delivery marketplaces can be analyzed as a full lifecycle system rather than a set of isolated transactions\nSQL is highly effective for uncovering operational trends in courier performance and customer value\nSmall differences in delivery speed can have meaningful effects on customer experience\nDelivery economics become more informative when fees and tips are included in customer spending analysis\nPredictive modeling can reveal hidden drivers of performance, even when the model is imperfect"
+  },
+  {
+    "objectID": "fooddeliveryplatform.html#limitations",
+    "href": "fooddeliveryplatform.html#limitations",
+    "title": "Delivering Insights From a Food Delivery Marketplace",
+    "section": "Limitations",
+    "text": "Limitations\nNo analysis is complete without acknowledging its limits.\n\nConstraints in the dataset\n\nToo many features made the model more generic and less interpretable\nThe data was not well segmented, which reduced prediction accuracy\nThe dataset covered only 10 months, so yearly seasonality could not be analyzed"
+  },
+  {
+    "objectID": "fooddeliveryplatform.html#recommendations",
+    "href": "fooddeliveryplatform.html#recommendations",
+    "title": "Delivering Insights From a Food Delivery Marketplace",
+    "section": "Recommendations",
+    "text": "Recommendations\nBased on the findings, I would recommend expanding both the feature set and the segmentation strategy for future analysis.\n\nRecommended next steps\n\nAdd features for time of day and day of week\nBreak the dataset into more homogeneous groups for stronger prediction accuracy\nBuild separate models for specific contexts, such as city based deliveries or bike only deliveries\nInclude operational variables such as traffic conditions and street layout where possible\n\n\n\nExample of a stronger future prediction problem\nInstead of predicting all deliveries at once, a more targeted model could estimate:\nHow long will a New York bike delivery take on a Friday night at 6 PM?\nThis type of narrower prediction would likely be much more useful for real operational planning and customer facing delivery estimates."
+  },
+  {
+    "objectID": "fooddeliveryplatform.html#final-reflection",
+    "href": "fooddeliveryplatform.html#final-reflection",
+    "title": "Delivering Insights From a Food Delivery Marketplace",
+    "section": "Final Reflection",
+    "text": "Final Reflection\nThis project demonstrates how structured relational data can be transformed into a business story. By combining database design, SQL analysis, and predictive modeling, I was able to explore how a digital marketplace operates across customers, restaurants, and couriers.\nFrom identifying the fastest delivery partners to examining customer spending behavior and modeling delivery times, this work reflects the kind of analysis that supports real operational and strategic decisions.\nFor me, this project was especially valuable because it combined technical analytics with business context. It reinforced the idea that effective data analysis is not just about querying tables or building models. It is about understanding how systems work, where inefficiencies emerge, and how data can guide better decisions."
+  },
+  {
+    "objectID": "fooddeliveryplatform.html#tools-used",
+    "href": "fooddeliveryplatform.html#tools-used",
+    "title": "Delivering Insights From a Food Delivery Marketplace",
+    "section": "Tools Used",
+    "text": "Tools Used\n\nSQL\nRelational database design\nEntity relationship modeling\nRegression based machine learning\nBusiness analytics\nOperational analysis"
+  },
+  {
+    "objectID": "fooddeliveryplatform.html#portfolio-note",
+    "href": "fooddeliveryplatform.html#portfolio-note",
+    "title": "Delivering Insights From a Food Delivery Marketplace",
+    "section": "Portfolio Note",
+    "text": "Portfolio Note\nThis case study reflects my interest in using data analytics to solve real business problems, especially in operational and marketplace environments where customer behavior, logistics, and performance are closely connected."
+  },
+  {
+    "objectID": "about.html#hi-im-essha",
+    "href": "about.html#hi-im-essha",
+    "title": "About Me",
+    "section": "Hi, I’m Essha",
+    "text": "Hi, I’m Essha\nI’m a Master’s candidate in Applied Business Data Analytics at Boston University with a strong interest in bridging data analytics, machine learning, and business strategy.\nMy academic background, combined with hands on experience in Python, SQL, Power BI, and Plotly, has equipped me to transform complex datasets into actionable insights.\nI am particularly interested in understanding how data can drive decision making in real world business contexts. My recent work includes building predictive models, analyzing large scale job market datasets using PySpark and AWS, and exploring financial data to uncover trends and patterns.\nProfessionally, I am interested in pursuing roles in data analytics or product analytics, where I can combine my analytical skills with my background in design and user experience."
+  },
+  {
+    "objectID": "about.html#skills",
+    "href": "about.html#skills",
+    "title": "About Me",
+    "section": "Skills",
+    "text": "Skills\n\nProgramming Languages: Python, SQL, R\n\nData Analysis: pandas, data cleaning, exploratory data analysis, feature engineering\n\nBig Data Tools: PySpark, Apache Spark\n\nData Visualization: Power BI, Plotly, matplotlib\n\nCloud Technologies: AWS EC2, data workflows\n\nMachine Learning: regression modeling, predictive analytics\n\nTools & Platforms: Jupyter Notebook, Git, Excel\n\nCore Strengths: analytical thinking, problem solving, attention to detail\n\nAdditional Strengths: data storytelling, business insight, user focused design mindset"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "I’m a Master’s student in Applied Business Data Analytics at Boston University, with a strong interest in using data to solve real world business problems. This site serves as a collection of my academic, technical, and personal work, showcasing projects that reflect both analytical depth and practical application.\nMy work focuses on data analytics, machine learning, business intelligence, and data driven decision making. I am especially interested in how data can be used to bridge the gap between technical analysis and business strategy.\nWhether you’re here to explore my projects or learn more about my background, welcome."
+  },
+  {
+    "objectID": "index.html#hi-im-essha-khan",
+    "href": "index.html#hi-im-essha-khan",
+    "title": "Welcome",
+    "section": "",
+    "text": "I’m a Master’s student in Applied Business Data Analytics at Boston University, with a strong interest in using data to solve real world business problems. This site serves as a collection of my academic, technical, and personal work, showcasing projects that reflect both analytical depth and practical application.\nMy work focuses on data analytics, machine learning, business intelligence, and data driven decision making. I am especially interested in how data can be used to bridge the gap between technical analysis and business strategy.\nWhether you’re here to explore my projects or learn more about my background, welcome."
+  },
+  {
+    "objectID": "index.html#education-experience",
+    "href": "index.html#education-experience",
+    "title": "Welcome",
+    "section": "🎓 Education & Experience",
+    "text": "🎓 Education & Experience\nI completed my undergraduate degree in Technology, with a focus on Graphic Communications Management and a minor in Marketing at Ryerson University.\nProfessionally, I interned at Royal Bank of Canada as a Digital Innvation Specialist where I gained experience working in collaborative environments and supported digital initiatives and cross functional projects. These experiences strengthened my ability to translate complex ideas into clear, actionable insights."
+  },
+  {
+    "objectID": "index.html#projects-analytical-work",
+    "href": "index.html#projects-analytical-work",
+    "title": "Welcome",
+    "section": "🧠 Projects & Analytical Work",
+    "text": "🧠 Projects & Analytical Work\nThe projects featured on this site reflect my ability to work across the full data pipeline, from data cleaning and exploration to modeling and visualization.\nSome highlights include:\n\nJob Market Analysis: using a large scale dataset to uncover trends in skills, salaries, and hiring demand\nFood Delivery Marketplace Analysis: exploring customer behavior, courier performance, and operational efficiency\nNYC Real Estate Transaction Data: Analyzed NYC real estate data using R and Power BI to uncover pricing trends, anomalies, and neighborhood-level insights, presenting findings through data-driven storytelling.\nMicrobrewery Investment Business Case: Evaluated the feasibility and profitability of a microbrewery investment using business simulation and analytical frameworks such as SWOT, PESTEL, and scenario analysis to support strategic decision-making.\n\nThrough these projects, I aim to not only analyze data, but also tell meaningful stories that support better decision making."
+  },
+  {
+    "objectID": "index.html#interests-goals",
+    "href": "index.html#interests-goals",
+    "title": "Welcome",
+    "section": "🚀 Interests & Goals",
+    "text": "🚀 Interests & Goals\nI am particularly interested in roles within data analytics and product analytics, where I can combine technical skills with business context to drive impact.\nMy goal is to work on data driven products and strategies that improve decision making, optimize operations, and enhance user experiences. I am especially drawn to environments where analytics, technology, and business intersect."
+  },
+  {
+    "objectID": "index.html#a-bit-more-about-me",
+    "href": "index.html#a-bit-more-about-me",
+    "title": "Welcome",
+    "section": "✨ A Bit More About Me",
+    "text": "✨ A Bit More About Me\nBeyond data and analytics, here are a few things that make me, me:\n\n🐱 Cat owner to the cutest British Shorthair\n\n🍵 Matcha enthusiast who appreciates a well-crafted cup\n\n📸 Enjoy portrait photography"
+  },
+  {
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "Contact",
+    "section": "",
+    "text": "Feel free to reach out for opportunities, collaborations, or just to connect.\n\n\n📧 Email:  esshak@bu.edu \n\n\n🔗 LinkedIn:  linkedin.com/in/essha-khan"
+  },
+  {
+    "objectID": "airbnbproject.html",
+    "href": "airbnbproject.html",
+    "title": "Airbnb Zurich Project",
+    "section": "",
+    "text": "View Airbnb Presentation"
+  }
+]

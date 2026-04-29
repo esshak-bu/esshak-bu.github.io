@@ -6,17 +6,24 @@ website:
   title: "Essha Khan"
   navbar:
     left:
-      - href: index.qmd
-        text: Home
-      - href: about.qmd
-        text: About
-      - href: fooddeliveryplatform.qmd
-        text: Projects
-      - href: Resume_EsshaKhan.pdf
-        text: Resume
-      - href: contact.qmd
-        text: Contact
+      - text: Home
+        href: index.qmd
 
+      - text: About
+        href: about.qmd
+
+      - text: Projects
+        menu:
+          - text: Food Delivery Platform
+            href: fooddeliveryplatform.qmd
+          - text: Airbnb Presentation
+            href: airbnbproject.qmd
+
+      - text: Resume
+        href: Resume_EsshaKhan.pdf
+
+      - text: Contact
+        href: contact.qmd
 
 format:
   html:

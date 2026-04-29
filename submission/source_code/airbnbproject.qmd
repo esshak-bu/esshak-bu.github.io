@@ -1,0 +1,12 @@
+---
+title: "Airbnb Zurich Project"
+subtitle: "This project explores pricing, clustering, and machine learning techniques applied to Zurich Airbnb listings."
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    smooth-scroll: true
+    page-layout: full
+---
+<iframe src="visuals/Airbnb-FinalPresentation_Send.pdf" width="100%" height="600px"></iframe>
