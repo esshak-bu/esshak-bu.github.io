@@ -1,0 +1,15 @@
+---
+title: "ButterMilk & Bourbon: a Microbrewery Investment Case"
+subtitle: "Analyzing the financial viability of investing in a microbrewery business"
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    smooth-scroll: true
+    page-layout: full
+---
+
+<iframe src="visuals/Buttermilk&BourbonMicrobreweryProject_Group7 (2).pdf" width="100%" height="600px"></iframe>
+<iframe src="visuals/AD715_ Team Term Project 1 (1).pdf" width="100%" height="600px"></iframe>
+<iframe src="visuals/AD715_ Team Term Project 2 (2).pdf" width="100%" height="600px"></iframe>

@@ -18,6 +18,12 @@ website:
             href: fooddeliveryplatform.qmd
           - text: Airbnb Presentation
             href: airbnbproject.qmd
+          - text: Microbrewery Investment Case Study
+            href: microbreweryinvestment.qmd
+          - text: NYC Real Estate Data Analysis Project
+            href: nycrealestateproject.qmd
+          - text: Evaluating Job Market Prospcts in Data
+            href: cloudanalytics.qmd
 
       - text: Resume
         href: Resume_EsshaKhan.pdf

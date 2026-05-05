@@ -1,0 +1,14 @@
+---
+title: "NYC Real Estate Data Analysis Project"
+subtitle: "Analyzing East New York real estate data to identify trends and insights"
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    smooth-scroll: true
+    page-layout: full
+---
+
+<iframe src="visuals/AD571_FinalPresentation.pdf" width="100%" height="600px"></iframe>
+<iframe src="visuals/MET+AD+571+Assignment+#2_EsshaKhan (6).pdf" width="100%" height="600px"></iframe>
