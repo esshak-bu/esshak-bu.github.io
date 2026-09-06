@@ -22,7 +22,7 @@ website:
             href: microbreweryinvestment.qmd
           - text: NYC Real Estate Data Analysis Project
             href: nycrealestateproject.qmd
-          - text: Evaluating Job Market Prospcts in Data
+          - text: Evaluating Job Market Prospects in Data Fields
             href: cloudanalytics.qmd
 
       - text: Resume

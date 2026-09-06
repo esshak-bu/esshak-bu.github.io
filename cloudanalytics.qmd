@@ -1,6 +1,6 @@
 ---
 title: "Business Running Case: Evaluating Personal Job Market Prospects in 2024"
-subtitle: "analyzing Business Analytics, Data Science, and Machine Learning Trends"
+subtitle: "Analyzing Business Analytics, Data Science, and Machine Learning Trends"
 format:
   html:
     theme: cosmo
