@@ -1,0 +1,1 @@
+Place your resume.pdf in the project root so /resume.pdf works.

@@ -4,34 +4,25 @@ project:
 
 website:
   title: "Essha Khan"
-  navbar:
-    left:
-      - text: Home
-        href: index.qmd
-
-      - text: About
-        href: about.qmd
-
-      - text: Projects
-        menu:
-          - text: Food Delivery Platform
-            href: fooddeliveryplatform.qmd
-          - text: Airbnb Presentation
-            href: airbnbproject.qmd
-          - text: Microbrewery Investment Case Study
-            href: microbreweryinvestment.qmd
-          - text: NYC Real Estate Data Analysis Project
-            href: nycrealestateproject.qmd
-          - text: Evaluating Job Market Prospects in Data Fields
-            href: cloudanalytics.qmd
-
-      - text: Resume
-        href: Resume_EsshaKhan.pdf
-
-      - text: Contact
-        href: contact.qmd
+  navbar: false
+  favicon: assets/favicon.svg
 
 format:
   html:
-    theme: journal
-    toc: true
+    theme: none
+    css: styles.css
+    toc: false
+    smooth-scroll: true
+    code-copy: true
+    code-overflow: wrap
+
+    include-in-header:
+      - text: |
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    include-after-body:
+      - text: |
+          <script src="/scripts.js"></script>
+
+execute:
+  freeze: auto

@@ -1,113 +1,180 @@
 ---
-title: "Welcome"
-format:
-  html:
-    theme: cosmo
-    toc: false
-    page-layout: full
+title: "Home"
+page-layout: full
 ---
-<style>
-.card {
-  border-radius: 18px !important;
-  background-color: #f8f9fa !important; /* light grey */
-  border: 1px solid #e9ecef !important;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
-}
+```{=html}
+<header class="site-header container">
+  <a class="brand" href="/">ESSHA KHAN</a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="/projects/">Work</a>
+    <a href="/about.html">About</a>
+    <a href="/resume.pdf">Resume</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
+  <div class="status-pill"><span></span>Open to opportunities</div>
+</header>
 
-.img-card {
-  width: 100%;
-  height: 220px;
-  overflow: hidden;
-  border-radius: 16px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-}
+<main>
+<section class="hero container">
+  <div class="hero-copy">
+    <p class="eyebrow">DATA ANALYST</p>
+    <h1>Turning data<br>into <span>clarity.</span></h1>
+    <p class="hero-lede">I explore data, find the story, and turn complex questions into clear, actionable insights.</p>
+    <div class="hero-actions">
+      <a class="btn btn-dark" href="/projects/">View my work →</a>
+      <a class="btn btn-light" href="/Resume_EsshaKhan.pdf">Download résumé</a>
+    </div>
+    <p class="skill-line">PYTHON <i>·</i> SQL <i>·</i> DATA VISUALIZATION <i>·</i> CLOUD <i>·</i> STORYTELLING</p>
+  </div>
 
-.img-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-</style>
+  <div class="sql-playground" data-sql-demo>
+    <div class="window-top">
+      <div class="window-dots"><b></b><b></b><b></b></div>
+      <div class="tabs">
+        <button class="tab active" data-tab="sql">SQL</button>
+        <button class="tab" data-tab="results">Results</button>
+      </div>
+      <span class="try-label">Try it out ↓</span>
+    </div>
 
-::: {.card .p-4 .mb-4}
-## 👋 Hi, I’m Essha Khan
+    <div class="sql-panel active" data-panel="sql">
+      <div class="code-shell">
+        <div class="line-numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10</div>
+        <textarea spellcheck="false" aria-label="Editable SQL query">-- Which industries have the highest average salary?
+SELECT
+  industry,
+  ROUND(AVG(salary), 0) AS avg_salary,
+  COUNT(*) AS job_postings
+FROM job_postings
+WHERE salary IS NOT NULL
+GROUP BY industry
+ORDER BY avg_salary DESC
+LIMIT 5;</textarea>
+      </div>
+    </div>
 
-I’m a Master’s student in Applied Business Data Analytics at Boston University, with a strong interest in using data to solve real world business problems. This site serves as a collection of my academic, technical, and personal work, showcasing projects that reflect both analytical depth and practical application.
+    <div class="sql-panel" data-panel="results">
+      <div class="table-wrap" data-results-table></div>
+    </div>
 
-My work focuses on data analytics, machine learning, business intelligence, and data driven decision making. I am especially interested in how data can be used to bridge the gap between technical analysis and business strategy.
+    <div class="sql-result-preview table-wrap" data-inline-results></div>
 
-Whether you’re here to explore my projects or learn more about my background, welcome.
-:::
+    <div class="window-bottom">
+      <span>Sample data: U.S. job postings (illustrative)</span>
+      <button class="run-query" data-run-query>▷ &nbsp; Run query</button>
+    </div>
+  </div>
+</section>
 
-::: {.card .p-4 .mb-4}
-## 🎓 Education & Experience
+<section class="featured container">
+  <div class="section-heading">
+    <p class="eyebrow">FEATURED PROJECTS</p>
+    <a href="/projects/">View all projects →</a>
+  </div>
 
-I completed my undergraduate degree in **Technology**, with a focus on **Graphic Communications Management** and a minor in **Marketing** at **Ryerson University**.
+  <div class="project-grid">
+    <a class="project-card lavender" href="/projects/job-market/">
+      <div class="card-topline">
+        <span>01</span>
+        <span>JOB MARKET ANALYSIS</span>
+      </div>
+      <div class="mini-viz dot-cloud" aria-hidden="true"></div>
+      <h2>What can 1M+ job postings tell us about the future of data work?</h2>
+      <p>I explored U.S. job postings to uncover trends in data, AI, and tech roles, including in-demand skills, salaries, and how the market is evolving.</p>
+      <div class="tags">
+        <span>Python</span>
+        <span>PySpark</span>
+        <span>AWS</span>
+        <span>SQL</span>
+      </div>
+      <span class="project-link">View project →</span>
+    </a>
 
-Professionally, I interned at **Royal Bank of Canada** as a **Digital Innvation Specialist** where I gained experience working in collaborative environments and supported digital initiatives and cross functional projects. These experiences strengthened my ability to translate complex ideas into clear, actionable insights.
-:::
+    <a class="project-card mint" href="#">
+      <div class="card-topline">
+        <span>02</span>
+        <span>STOCK ANALYSIS</span>
+      </div>
 
-::: {.card .p-4 .mb-4}
-## 🧠 Projects & Analytical Work
+      <div class="mini-viz line-viz" aria-hidden="true">
+        <svg viewBox="0 0 500 170" preserveAspectRatio="none">
+          <polyline points="0,145 55,125 105,130 150,90 200,108 245,54 290,80 340,44 390,66 445,22 500,34"/>
+          <polyline class="line-two" points="0,155 55,140 105,112 150,126 200,94 245,105 290,69 340,82 390,42 445,60 500,20"/>
+        </svg>
+      </div>
 
-The projects featured on this site reflect my ability to work across the full data pipeline, from data cleaning and exploration to modeling and visualization.
+      <h2>Can language help explain stock performance?</h2>
+      <p>I used NLP to analyze earnings-call transcripts and explore whether company sentiment is related to stock returns.</p>
 
-Some highlights include:
+      <div class="tags">
+        <span>Python</span>
+        <span>NLP</span>
+        <span>Regression</span>
+        <span>Data Viz</span>
+      </div>
 
-- **Job Market Analysis:** using a large scale dataset to uncover trends in skills, salaries, and hiring demand
-- **Food Delivery Marketplace Analysis:** exploring customer behavior, courier performance, and operational efficiency
-- **NYC Real Estate Transaction Data:** Analyzed NYC real estate data using R and Power BI to uncover pricing trends, anomalies, and neighborhood-level insights, presenting findings through data-driven storytelling.
-- **Microbrewery Investment Business Case:** Evaluated the feasibility and profitability of a microbrewery investment using business simulation and analytical frameworks such as SWOT, PESTEL, and scenario analysis to support strategic decision-making.
+      <span class="project-link">View project →</span>
+    </a>
 
-Through these projects, I aim to not only analyze data, but also tell meaningful stories that support better decision making.
-:::
+    <a class="project-card peach" href="#">
+      <div class="card-topline">
+        <span>03</span>
+        <span>FOOD DELIVERY ANALYTICS</span>
+      </div>
 
-::: {.card .p-4 .mb-4}
-## 🚀 Interests & Goals
+      <div class="mini-viz map-viz" aria-hidden="true">
+        <span style="left:18%;top:48%"></span>
+        <span style="left:29%;top:31%"></span>
+        <span style="left:42%;top:57%"></span>
+        <span style="left:56%;top:36%"></span>
+        <span style="left:70%;top:52%"></span>
+        <span style="left:79%;top:26%"></span>
+        <span style="left:62%;top:70%"></span>
+        <span style="left:35%;top:72%"></span>
+      </div>
 
-I am particularly interested in roles within **data analytics** and **product analytics**, where I can combine technical skills with business context to drive impact.
+      <h2>What drives successful food delivery markets?</h2>
+      <p>I analyzed restaurant, customer, and delivery data to identify trends in order behavior, restaurant performance, and market growth.</p>
 
-My goal is to work on data driven products and strategies that improve decision making, optimize operations, and enhance user experiences. I am especially drawn to environments where analytics, technology, and business intersect.
+      <div class="tags">
+        <span>SQL</span>
+        <span>Python</span>
+        <span>Power BI</span>
+        <span>Data Cleaning</span>
+      </div>
 
-:::
+      <span class="project-link">View project →</span>
+    </a>
+  </div>
+</section>
 
-::: {.card .p-4 .mb-4}
-## ✨ A Bit More About Me
+<section class="about-teaser container">
+  <div>
+    <p class="eyebrow">ABOUT ME</p>
+    <h2>I’m Essha — a data analyst who loves asking “why?”</h2>
+    <p>I’m passionate about using data to solve real-world problems and communicate insights that make an impact. I enjoy working at the intersection of analysis, visualization, and strategy.</p>
+    <a class="btn btn-light" href="/about.html">More about me →</a>
+  </div>
 
-Beyond data and analytics, here are a few things that make me, me:
+  <div class="portrait-placeholder">
+    <div class="blob blob-a"></div>
+    <div class="blob blob-b"></div>
+    <div class="portrait-card">
+      <span>Add your portrait</span>
+    </div>
+    <p class="hand-note">Data curious,<br>always.</p>
+  </div>
+</section>
+</main>
 
-- 🐱 Cat owner to the cutest British Shorthair  
-- 🍵 Matcha enthusiast who appreciates a well-crafted cup  
-- 📸 Enjoy portrait photography 
-
-<div style="max-width: 750px; margin: 40px auto; display: flex; justify-content: center;">
-
-::: {.grid}
-::: {.g-col-3}
-<div class="img-card">
-![](visuals/Boba.jpeg)
-</div>
-:::
-
-::: {.g-col-3}
-<div class="img-card">
-![](visuals/Matcha.jpeg)
-</div>
-:::
-
-::: {.g-col-3}
-<div class="img-card">
-![](visuals/Photography.jpg)
-</div>
-:::
-:::
-
-</div>
+<footer class="site-footer container">
+  <strong>ESSHA KHAN</strong>
+  <div>
+    Let’s connect &nbsp;
+    <a href="#">LinkedIn</a> ·
+    <a href="#">GitHub</a> ·
+    <a href="mailto:you@example.com">Email</a>
+  </div>
+</footer>
+```

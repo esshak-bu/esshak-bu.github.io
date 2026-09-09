@@ -1,0 +1,2061 @@
+---
+title: "U.S. Job Market Analysis"
+page-layout: full
+title-block-banner: false
+---
+
+```{=html}
+<style>
+#title-block-header,
+.quarto-title-block {
+  display: none !important;
+}
+
+.case-sidebar nav a {
+  transition: background .18s ease, color .18s ease, transform .18s ease;
+}
+
+.case-sidebar nav a.active {
+  background: #111827;
+  color: #ffffff !important;
+  border-radius: 8px;
+  transform: translateX(2px);
+}
+
+.research-grid,
+.market-summary-grid,
+.finding-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.research-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.research-card,
+.market-summary-card,
+.finding-card {
+  border: 1px solid #e5e9ef;
+  border-radius: 14px;
+  padding: 18px;
+  background: #ffffff;
+}
+
+.research-card:nth-child(1),
+.market-summary-card:nth-child(1) {
+  background: linear-gradient(135deg, #f6f1ff, #fbf9ff);
+}
+
+.research-card:nth-child(2),
+.market-summary-card:nth-child(2) {
+  background: linear-gradient(135deg, #eefaf5, #fbfffd);
+}
+
+.research-card:nth-child(3),
+.market-summary-card:nth-child(3) {
+  background: linear-gradient(135deg, #eef5ff, #fbfdff);
+}
+
+.research-card:nth-child(4),
+.market-summary-card:nth-child(4) {
+  background: linear-gradient(135deg, #fff4ee, #fffaf7);
+}
+
+.research-card span,
+.market-summary-card span,
+.finding-card span {
+  display: block;
+  color: #7165e8;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  margin-bottom: 8px;
+}
+
+.research-card h3,
+.market-summary-card h3,
+.finding-card h3 {
+  margin: 0 0 8px;
+  font-size: 17px;
+}
+
+.research-card p,
+.market-summary-card p,
+.finding-card p {
+  margin: 0;
+  color: #667085;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.rationale-box,
+.literature-box {
+  margin-top: 20px;
+  border: 1px solid #e5e9ef;
+  border-radius: 14px;
+  padding: 22px 24px;
+  background: #fbfbfd;
+}
+
+.rationale-box p,
+.literature-box p {
+  color: #596577;
+  line-height: 1.72;
+}
+
+.chart-shell {
+  margin: 22px 0;
+  border: 1px solid #e5e9ef;
+  border-radius: 14px;
+  background: #ffffff;
+  padding: 16px;
+  overflow: hidden;
+}
+
+.chart-label {
+  margin: 4px 0 2px;
+  font-size: 12px;
+  color: #7a8292;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-weight: 700;
+}
+
+.additional-analysis {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid #eceff4;
+}
+
+.additional-analysis h3 {
+  margin-bottom: 6px;
+}
+
+.insight-banner {
+  margin-top: 18px;
+  padding: 20px 22px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #f7f3ff, #f1f7ff);
+  border: 1px solid #ebe7fb;
+}
+
+.insight-banner strong {
+  display: block;
+  margin-bottom: 7px;
+}
+
+.insight-banner p {
+  margin: 0;
+  color: #596577;
+  line-height: 1.6;
+}
+
+.market-summary-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.finding-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.roadmap-strip {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.roadmap-strip div {
+  border-top: 3px solid #756cf4;
+  background: #faf9ff;
+  border-radius: 0 0 10px 10px;
+  padding: 16px;
+}
+
+.roadmap-strip small {
+  color: #756cf4;
+  font-weight: 700;
+}
+
+.roadmap-strip strong {
+  display: block;
+  margin: 5px 0 6px;
+}
+
+.roadmap-strip p {
+  margin: 0;
+  color: #667085;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.source-note {
+  margin-top: 10px;
+  color: #7a8292;
+  font-size: 12px;
+}
+
+.literature-box a {
+  color: #5d55d6;
+  text-decoration: underline;
+}
+
+@media (max-width: 950px) {
+  .research-grid,
+  .market-summary-grid,
+  .finding-grid,
+  .roadmap-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .research-grid,
+  .market-summary-grid,
+  .finding-grid,
+  .roadmap-strip {
+    grid-template-columns: 1fr;
+  }
+}
+
+.plotly-graph-div {
+  width: 100% !important;
+}
+
+.chart-shell {
+  margin: 24px 0 30px;
+  border: 1px solid #e9ebf0;
+  border-radius: 16px;
+  background: #ffffff;
+  padding: 20px 20px 10px;
+  box-shadow: 0 10px 28px rgba(28, 39, 60, .04);
+}
+
+.chart-note {
+  margin: -12px 0 20px;
+  color: #7a8292;
+  font-size: 12px;
+}
+
+details.analysis-details {
+  margin: 18px 0;
+  border: 1px solid #e9ebf0;
+  border-radius: 14px;
+  background: #fff;
+  overflow: hidden;
+}
+
+details.analysis-details > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 17px 20px;
+  font-weight: 700;
+  color: #1f2937;
+  background: #fafbfc;
+}
+
+details.analysis-details > summary::-webkit-details-marker {
+  display: none;
+}
+
+details.analysis-details > summary::after {
+  content: "+";
+  float: right;
+  color: #756cf4;
+  font-size: 18px;
+}
+
+details.analysis-details[open] > summary::after {
+  content: "–";
+}
+
+details.analysis-details .details-inner {
+  padding: 8px 18px 18px;
+}
+
+@media (max-width: 700px) {
+  .chart-shell {
+    padding: 12px 8px 6px;
+  }
+}
+
+
+/* ---------- Unsupervised learning section ---------- */
+
+.ml-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(210px, .7fr);
+  gap: 34px;
+  align-items: start;
+}
+
+.ml-method-card {
+  background: linear-gradient(145deg, #f8f5ff, #fcfbff);
+  border: 1px solid #e9e3f7;
+  border-radius: 16px;
+  padding: 22px;
+}
+
+.ml-method-card .method-label,
+.mini-eyebrow,
+.finding-kicker {
+  color: #9278cb;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.ml-method-card > strong {
+  display: block;
+  margin-top: 7px;
+  font-size: 27px;
+  color: #293548;
+}
+
+.ml-method-card > p {
+  color: #718096;
+  margin: 3px 0 16px;
+}
+
+.method-tags,
+.feature-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.method-tags span,
+.feature-chips span {
+  padding: 7px 11px;
+  background: #f4f1fb;
+  border: 1px solid #e9e3f6;
+  border-radius: 999px;
+  font-size: 11px;
+  color: #625b79;
+}
+
+.feature-chips {
+  margin: 18px 0 22px;
+}
+
+.feature-chips i {
+  color: #9278cb;
+  margin-right: 5px;
+}
+
+.ml-subsection {
+  margin-top: 54px;
+}
+
+.ml-subsection > h3,
+.ml-subsection .analysis-heading h3 {
+  margin-top: 7px;
+  font-size: 22px;
+}
+
+.ml-pipeline {
+  display: flex;
+  align-items: stretch;
+  margin-top: 22px;
+}
+
+.pipeline-step {
+  flex: 1;
+  min-width: 0;
+  background: #fff;
+  border: 1px solid #e9ebf0;
+  border-radius: 14px;
+  padding: 16px 12px;
+}
+
+.pipeline-icon,
+.callout-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #f2edff;
+  color: #9278cb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 13px;
+}
+
+.pipeline-step > span {
+  display: block;
+  color: #a69aba;
+  font-size: 9px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.pipeline-step strong {
+  display: block;
+  color: #293548;
+  font-size: 14px;
+}
+
+.pipeline-step p {
+  color: #7a8494;
+  font-size: 11px;
+  line-height: 1.45;
+  margin: 5px 0 0;
+}
+
+.pipeline-arrow {
+  display: flex;
+  align-items: center;
+  padding: 0 7px;
+  color: #c6b9e3;
+}
+
+.ml-callout,
+.limitation-card {
+  display: flex;
+  gap: 16px;
+  background: #fbfafc;
+  border: 1px solid #e9ebf0;
+  border-radius: 14px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.ml-callout p,
+.limitation-card p {
+  margin: 5px 0 0;
+  color: #667085;
+  line-height: 1.65;
+}
+
+.ml-code-group {
+  display: grid;
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.ml-code-note {
+  margin: 0 0 8px;
+  color: #7a8292;
+  font-size: 12px;
+}
+
+.ml-decision {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 22px;
+  align-items: center;
+  margin-top: 22px;
+  padding: 22px;
+  background: linear-gradient(100deg, #f8f4ff, #f4f8ff);
+  border: 1px solid #ece7f8;
+  border-radius: 15px;
+}
+
+.decision-number {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  background: #aa8be0;
+  color: #fff;
+  font-size: 31px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ml-decision span {
+  color: #8e78bc;
+  font-size: 9px;
+  letter-spacing: .1em;
+  font-weight: 700;
+}
+
+.ml-decision h3 {
+  margin: 3px 0 5px;
+}
+
+.ml-decision p {
+  margin: 0;
+  color: #667085;
+  line-height: 1.6;
+}
+
+.cluster-profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.cluster-profile {
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  gap: 13px;
+  padding: 18px;
+  border: 1px solid #e9ebf0;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.cluster-number {
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  background: #f2edff;
+  color: #846bc6;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cluster-profile span {
+  color: #9a8caf;
+  font-size: 9px;
+  letter-spacing: .08em;
+  font-weight: 700;
+}
+
+.cluster-profile h3 {
+  font-size: 15px;
+  margin: 2px 0 5px;
+}
+
+.cluster-profile p {
+  margin: 0;
+  color: #70798a;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.ml-main-finding {
+  padding: 24px;
+}
+
+.ml-main-finding > strong {
+  font-size: 20px;
+  color: #4d4668;
+  margin-top: 6px;
+}
+
+.limitation-card > i {
+  color: #9b84d5;
+  font-size: 20px;
+}
+
+.limitation-card h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.model-validation-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.validation-card {
+  padding: 18px;
+  border: 1px solid #e9ebf0;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.validation-card i {
+  display: inline-flex;
+  width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  background: #f2edff;
+  color: #9278cb;
+  margin-bottom: 12px;
+}
+
+.validation-card h3 {
+  margin: 0 0 6px;
+  font-size: 15px;
+}
+
+.validation-card p {
+  margin: 0;
+  color: #70798a;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .ml-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .ml-pipeline {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .pipeline-arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 650px) {
+  .ml-pipeline,
+  .cluster-profile-grid,
+  .model-validation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ml-decision {
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>
+
+<header class="site-header container">
+  <a class="brand" href="/">ESSHA KHAN</a>
+  <nav class="nav-links">
+    <a href="/projects/">Work</a>
+    <a href="/about.html">About</a>
+    <a href="/Resume_EsshaKhan.pdf">Resume</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
+  <div class="status-pill"><span></span>Open to opportunities</div>
+</header>
+
+<div class="case-layout container">
+
+  <aside class="case-sidebar">
+    <a href="/projects/">← &nbsp; All projects</a>
+    <nav id="case-scroll-nav">
+      <a href="#overview" class="active">01 &nbsp; Overview</a>
+      <a href="#rationale">02 &nbsp; Rationale</a>
+      <a href="#skills">03 &nbsp; Skills by Role</a>
+      <a href="#market">04 &nbsp; Market Insights</a>
+      <a href="#clustering">05 &nbsp; K-Means</a>
+      <a href="#takeaways">06 &nbsp; Takeaways</a>
+      <a href="#literature">07 &nbsp; Literature Review</a>
+    </nav>
+
+    <div class="sidebar-note">
+      View the full project repository<br>
+      <a href="https://github.com/esshak-bu/job-market-analysis-project-2024">GitHub →</a>
+    </div>
+  </aside>
+
+  <main class="case-main">
+
+    <section id="overview" class="case-hero">
+      <div>
+        <p class="eyebrow"><span class="num">01</span> PROJECT</p>
+        <h1>What can 1M+ job postings tell us about the future of data work?</h1>
+        <p class="case-lede">
+          I analyzed real-world Lightcast job-market data to understand how data roles are evolving in the age of AI. From in-demand skills and salary differences to industry demand, experience requirements, and career pathways.
+        </p>
+
+        <div class="tags">
+          <span>Python</span>
+          <span>PySpark</span>
+          <span>AWS</span>
+          <span>SQL</span>
+          <span>Machine Learning</span>
+          <span>Plotly</span>
+        </div>
+      </div>
+
+      <div class="hero-dot-cloud dot-cloud"></div>
+    </section>
+
+    <section class="tldr">
+      <div class="tldr-item">
+  <div class="tldr-icon">
+    <i class="bi bi-calendar3"></i>
+  </div>
+  <strong>2024</strong>
+  <span>Lightcast job-market data</span>
+</div>
+
+<div class="tldr-item">
+  <div class="tldr-icon">
+    <i class="bi bi-people"></i>
+  </div>
+  <strong>3 Roles</strong>
+  <span>Data Analyst · Data Scientist · AI Engineer/Analyst</span>
+</div>
+
+<div class="tldr-item">
+  <div class="tldr-icon">
+    <i class="bi bi-terminal"></i>
+  </div>
+  <strong>45 Skills</strong>
+  <span>compared across each role category</span>
+</div>
+
+<div class="tldr-item">
+  <div class="tldr-icon">
+    <i class="bi bi-lightbulb"></i>
+  </div>
+  <strong>Skills &gt; Titles</strong>
+  <span>role clusters overlap heavily</span>
+</div>
+    </section>
+
+    <div class="case-section">
+      <p class="eyebrow">RESEARCH QUESTIONS</p>
+      <h2>What did I want to understand?</h2>
+
+      <div class="research-grid">
+        <div class="research-card">
+          <span>01 — SKILLS</span>
+          <h3>Which skills are most in demand?</h3>
+          <p>What are the most in-demand skills for data science, business analytics, and machine learning roles?</p>
+        </div>
+
+        <div class="research-card">
+          <span>02 — AI SHIFT</span>
+          <h3>Are job descriptions changing?</h3>
+          <p>Have job descriptions evolved in 2024 to require more AI and machine-learning expertise?</p>
+        </div>
+
+        <div class="research-card">
+          <span>03 — INDUSTRIES</span>
+          <h3>Where is hiring strongest?</h3>
+          <p>What industries are hiring the most data professionals, and where is demand concentrated?</p>
+        </div>
+
+        <div class="research-card">
+          <span>04 — CAREER</span>
+          <h3>What is the outlook for analytics?</h3>
+          <p>What do these market patterns suggest about the career outlook for business analytics professionals?</p>
+        </div>
+      </div>
+    </div>
+
+
+    <section id="rationale" class="case-section">
+      <p class="eyebrow"><span class="num">02</span> RESEARCH RATIONALE</p>
+      <h2>Why study the changing boundaries between data roles?</h2>
+
+      <div class="rationale-box">
+        <p>
+          Data analyst work is increasingly moving beyond dashboards and traditional reporting toward deeper business context, automation, and responsibilities that overlap with data science, data engineering, and machine learning. At the same time, AI can automate many routine technical tasks, making the skill of being able to interpret data within a meaningful business context and translate analysis into decisions even more important.
+        </p>
+
+        <p>
+          Three trends made this especially relevant in 2024: growing demand for AI and advanced analytics, increased emphasis on hybrid skill sets that combine tools such as Python and SQL with business communication, and clearer separation between traditional analytics positions and more specialized AI-focused roles. Remote and hybrid work have also expanded access to opportunities while increasing competition.
+        </p>
+
+        <p>
+          I expected the market to reward both technical depth and business understanding, with noticeable differences in skills, experience, and compensation between traditional analytics and AI-oriented roles.
+        </p>
+      </div>
+    </section>
+
+
+    <section id="skills" class="case-section">
+      <p class="eyebrow"><span class="num">03</span> SKILLS BY ROLE</p>
+      <h2>Which skills are employers looking for?</h2>
+      <p class="wide-copy">
+        Skill variables were processed independently to preserve the differences between software, specialized, common, and certification skill requirements. I cleaned the raw list fields, exploded them into individual observations, and ranked the most frequently occurring skills within each role category.
+      </p>
+
+      <div class="analysis-block">
+        <div class="analysis-heading">
+          <div>
+            <h2>Cleaning and extracting skills</h2>
+            <p>The code below is copied directly from my project notebook.</p>
+          </div>
+          <span class="language-pill">PySpark</span>
+        </div>
+
+        <div class="code-card">
+          <div class="code-toolbar">
+            <div class="window-dots"><b></b><b></b><b></b></div>
+            <button class="copy-code">Copy</button>
+          </div>
+          <pre><code class="language-python"># clean and extract skills
+from pyspark.sql.functions import regexp_replace, split, explode, trim, lower, col, lit
+
+# clean the string and remove unwanted characters such as list brackets, quotes, and new lines
+def extract_skills(dataframe, skill_col, skill_type):
+    cleaned = dataframe.withColumn(
+        "SKILL_CLEAN",
+        regexp_replace(col(skill_col), r'[\[\]\n"]', "")
+    )
+
+# explode so its one row per skill and rename column
+    exploded = cleaned.select(
+        "ROLE_CATEGORY",
+        explode(split(col("SKILL_CLEAN"), ",")).alias("SKILL")
+    )
+
+# clean formatting so everything is lower, trim any spaces, and remove empty values
+    return exploded.withColumn(
+        "SKILL",
+        trim(lower(col("SKILL")))
+    ).filter(
+        (col("SKILL").isNotNull()) &amp; (col("SKILL") != "")
+    ).withColumn(
+        "SKILL_TYPE",
+        lit(skill_type)
+    )</code></pre>
+        </div>
+      </div>
+
+      <div class="analysis-block">
+        <div class="analysis-heading">
+          <div>
+            <h2>Ranking the top skills by role</h2>
+            <p>I used a PySpark window function to identify the top 15 skills inside each role category.</p>
+          </div>
+          <span class="language-pill">PySpark</span>
+        </div>
+
+        <div class="code-card">
+          <div class="code-toolbar">
+            <div class="window-dots"><b></b><b></b><b></b></div>
+            <button class="copy-code">Copy</button>
+          </div>
+          <pre><code class="language-python"># window function to extract and aggregate skill datasets to identify the top 15 most frequently occurring skills within each role category
+from pyspark.sql.window import Window
+from pyspark.sql.functions import col, row_number
+
+def get_top_skills_by_role(df):
+    counts = df.groupBy("ROLE_CATEGORY", "SKILL").count()
+
+    window = Window.partitionBy("ROLE_CATEGORY").orderBy(col("count").desc())
+
+    ranked = counts.withColumn(
+        "rank",
+        row_number().over(window)
+    ).filter(col("rank") &lt;= 15)
+
+    return ranked</code></pre>
+        </div>
+      </div>
+<br>
+      <p class="chart-label">Software skills</p>
+```
+
+
+```{python}
+#| echo: false
+#| warning: false
+#| message: false
+
+import pandas as pd
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
+PORTFOLIO_FONT = "Inter, Helvetica Neue, Arial, sans-serif"
+TEXT = "#223047"
+MUTED = "#718096"
+GRID = "#F1F3F6"
+
+ROLE_COLORS = {
+    "Data Analyst": "#7FB3E6",
+    "Data Scientist": "#A98BE3",
+    "AI Engineer/Analyst": "#6BCB9A"
+}
+
+def apply_portfolio_style(fig, height=None):
+    fig.update_layout(
+        template="plotly_white",
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        font=dict(family=PORTFOLIO_FONT, color=TEXT, size=12),
+        title_font=dict(family=PORTFOLIO_FONT, color=TEXT, size=18),
+        margin=dict(l=24, r=45, t=76, b=52),
+        hoverlabel=dict(
+            bgcolor="white",
+            bordercolor="#E4E7EC",
+            font=dict(family=PORTFOLIO_FONT, color=TEXT)
+        )
+    )
+    if height:
+        fig.update_layout(height=height)
+
+    fig.update_xaxes(
+        showgrid=True,
+        gridcolor=GRID,
+        zeroline=False,
+        tickfont=dict(family=PORTFOLIO_FONT, color=MUTED, size=11),
+        title_font=dict(family=PORTFOLIO_FONT, color=MUTED, size=12),
+        automargin=True
+    )
+    fig.update_yaxes(
+        showgrid=False,
+        zeroline=False,
+        tickfont=dict(family=PORTFOLIO_FONT, color=TEXT, size=11),
+        automargin=True
+    )
+    return fig
+
+def role_skill_figure(data, title, top_n=15):
+    roles = ["Data Analyst", "Data Scientist", "AI Engineer/Analyst"]
+
+    fig = make_subplots(
+        rows=3,
+        cols=1,
+        subplot_titles=roles,
+        vertical_spacing=0.075
+    )
+
+    for row_num, role in enumerate(roles, start=1):
+        rows = sorted(data[role], key=lambda x: x[1], reverse=True)[:top_n]
+        rows = rows[::-1]
+
+        fig.add_trace(
+            go.Bar(
+                x=[v for _, v in rows],
+                y=[k for k, _ in rows],
+                orientation="h",
+                text=[f"{v:,}" for _, v in rows],
+                textposition="outside",
+                cliponaxis=False,
+                marker=dict(
+                    color=ROLE_COLORS[role],
+                    line=dict(width=0)
+                ),
+                hovertemplate="<b>%{y}</b><br>%{x:,} postings<extra></extra>",
+                showlegend=False
+            ),
+            row=row_num,
+            col=1
+        )
+
+        fig.update_xaxes(
+            title_text="Number of job postings",
+            row=row_num,
+            col=1
+        )
+
+    apply_portfolio_style(fig, height=1220)
+    fig.update_layout(
+        title=dict(
+            text=title,
+            x=0.01,
+            xanchor="left"
+        ),
+        bargap=0.28
+    )
+
+    # Make the three role headings match their bar colors.
+    for annotation, role in zip(fig.layout.annotations, roles):
+        annotation.update(
+            font=dict(
+                family=PORTFOLIO_FONT,
+                size=15,
+                color=ROLE_COLORS[role]
+            ),
+            x=0,
+            xanchor="left"
+        )
+
+    return fig
+```
+
+
+
+```{python}
+#| echo: false
+#| warning: false
+#| message: false
+
+software = {
+    "Data Analyst": [
+        ("sql (programming language)",12521),("dashboard",7526),
+        ("tableau (business intelligence software)",7507),("python (programming language)",6978),
+        ("power bi",6784),("microsoft excel",5929),("r (programming language)",3935),
+        ("microsoft office",2893),("microsoft powerpoint",2750),("sas (software)",2102),
+        ("relational databases",1899),("microsoft access",1779),("amazon web services",1326),
+        ("microsoft azure",1111),("alteryx",1092)
+    ],
+    "Data Scientist": [
+        ("sql (programming language)",187),("python (programming language)",130),
+        ("tableau (business intelligence software)",102),("r (programming language)",76),
+        ("dashboard",69),("power bi",51),("apache spark",49),("amazon web services",46),
+        ("javascript (programming language)",45),("extensible markup language (xml)",42),
+        ("restful api",41),("cascading style sheets (css)",40),("json",40),
+        ("hypertext markup language (html)",37),("resource description framework (rdf)",37)
+    ],
+    "AI Engineer/Analyst": [
+        ("python (programming language)",63),("sql (programming language)",53),("power bi",52),
+        ("chatbot",47),("integrated development environments",46),("sas (software)",46),
+        ("microsoft visio",46),("sql server integration services (ssis)",44),
+        ("tableau (business intelligence software)",44),("microsoft sql servers",44),
+        ("microsoft azure",20),("generative artificial intelligence",19),("tensorflow",16),
+        ("r (programming language)",15),("amazon web services",15)
+    ]
+}
+
+fig = role_skill_figure(
+    software,
+    "Top Software Skills by Role",
+    top_n=15
+)
+fig.show()
+```
+
+```{=html}
+      <div class="insight-banner">
+        <strong>✧ &nbsp; Key insight</strong>
+        <p>
+          SQL, Python, and dashboarding tools appear consistently across all role categories, reinforcing them as foundational skills. Data Analyst postings lean more heavily on BI and reporting tools, while Data Scientist and AI-focused roles introduce a wider mix of programming, cloud, and machine-learning technologies.
+        </p>
+      </div>
+
+      <div class="additional-analysis">
+        <h3>Additional skill analyses</h3>
+        <p class="wide-copy">The same pipeline was applied to specialized skills, common soft skills, and certifications.</p>
+      </div>
+
+      <details class="analysis-details">
+        <summary>Explore specialized skills</summary>
+        <div class="details-inner">
+          <br>
+          <p class="chart-note">Role-specific technical and domain skills.</p>
+```
+
+
+```{python}
+#| echo: false
+#| warning: false
+#| message: false
+
+specialized = {
+    "Data Analyst": [
+        ("data analysis",17549),("sql (programming language)",12521),("dashboard",7526),
+        ("tableau (business intelligence software)",7507),("python (programming language)",6978),
+        ("power bi",6784),("business intelligence",6502),("computer science",6485),
+        ("data visualization",5446),("statistics",5291),("data quality",4985),
+        ("data modeling",4620),("data management",4589),("data warehousing",4109),
+        ("r (programming language)",3935)
+    ],
+    "Data Scientist": [
+        ("data analysis",258),("sql (programming language)",187),("data science",176),
+        ("computer science",132),("python (programming language)",130),("statistics",130),
+        ("data visualization",113),("tableau (business intelligence software)",102),
+        ("business intelligence",86),("data warehousing",84),("r (programming language)",76),
+        ("data modeling",73),("project management",73),("machine learning",73),("big data",72)
+    ],
+    "AI Engineer/Analyst": [
+        ("data analysis",106),("artificial intelligence",81),("machine learning",74),
+        ("computer science",65),("python (programming language)",63),("data science",60),
+        ("sql (programming language)",53),("statistics",53),("power bi",52),("solution design",52),
+        ("project management",52),("programming languages",50),("automation",49),
+        ("scrum (software development)",47),("chatbot",47)
+    ]
+}
+
+fig = role_skill_figure(
+    specialized,
+    "Top Specialized Skills by Role",
+    top_n=15
+)
+fig.show()
+```
+
+```{=html}
+        </div>
+      </details>
+
+      <details class="analysis-details">
+        <summary>Explore common soft skills</summary>
+        <div class="details-inner">
+          <br>
+          <p class="chart-note">Cross-functional and business skills found in job postings.</p>
+```
+
+```{=html}
+      <p class="chart-label">Common Soft skills</p>
+```
+
+```{python}
+#| echo: false
+#| warning: false
+#| message: false
+
+common = {
+    "Data Analyst": [
+        ("communication",9821),("management",7297),("microsoft excel",5927),
+        ("problem solving",5877),("detail oriented",5291),("leadership",4886),
+        ("research",4341),("decision making",4100),("mathematics",4040),("operations",4015),
+        ("presentations",3974),("writing",3802),("microsoft office",2894),
+        ("microsoft powerpoint",2750),("analytical skills",2659)
+    ],
+    "Data Scientist": [
+        ("mathematics",154),("leadership",105),("communication",97),("management",94),
+        ("presentations",83),("problem solving",66),("decision making",64),("research",63),
+        ("prioritization",60),("report writing",46),("innovation",45),("analytical skills",41),
+        ("typing",40),("ability to meet deadlines",38),("information technology",33)
+    ],
+    "AI Engineer/Analyst": [
+        ("problem solving",57),("critical thinking",50),("detail oriented",50),
+        ("quality assurance",48),("safety assurance",46),("leadership",18),
+        ("communication",17),("innovation",13),("interpersonal communications",8),
+        ("collaboration",8),("management",8),("presentations",7),("governance",7),
+        ("consulting",6),("mathematics",6)
+    ]
+}
+
+fig = role_skill_figure(
+    common,
+    "Top Common Soft Skills by Role",
+    top_n=15
+)
+fig.show()
+```
+
+```{=html}
+        </div>
+      </details>
+
+      <details class="analysis-details">
+        <summary>Explore certifications</summary>
+        <div class="details-inner">
+          <br>
+          <p class="chart-note">Credential requirements varied substantially by role.</p>
+```
+
+```{=html}
+      <p class="chart-label">Certifications</p>
+```
+
+```{python}
+#| echo: false
+#| warning: false
+#| message: false
+
+certifications = {
+    "Data Analyst": [
+        ("security clearance",639),("master of business administration (mba)",360),
+        ("top secret-sensitive compartmented information (ts/sci clearance)",321),
+        ("secret clearance",321),("valid driver's license",288),("top secret clearance",124),
+        ("microsoft certified professional",117),("project management professional certification",97),
+        ("certification in risk management assurance",72),
+        ("certified information systems security professional",55),
+        ("certified information system auditor (cisa)",51),
+        ("certified information security manager",49),
+        ("enterprise desktop administrator (microsoft certified it professional)",48),
+        ("certified business analysis professional",48),("comptia security+",44)
+    ],
+    "Data Scientist": [
+        ("iat level ii certification",37),("security clearance",34),
+        ("top secret-sensitive compartmented information (ts/sci clearance)",17),
+        ("secret clearance",16),
+        ("enterprise desktop administrator (microsoft certified it professional)",6),
+        ("top secret clearance",5),("togaf certification",5),
+        ("functional skills qualification",3),("cdl class c license",2),
+        ("citrix certified enterprise administrator",2),("bachelor of science in business",2),
+        ("aws certified solutions architect",1),("master of business administration (mba)",1),
+        ("certified diabetes educator (cde)",1),("actuarial exams",1)
+    ],
+    "AI Engineer/Analyst": [
+        ("certified information security manager",3),("comptia security+",3),
+        ("secret clearance",3),("nist cybersecurity framework (csf)",3),
+        ("certified information systems security professional",3),
+        ("certified information system auditor (cisa)",3),
+        ("servicenow certified system administrator (csa)",2)
+    ]
+}
+
+fig = role_skill_figure(
+    certifications,
+    "Top Certifications by Role",
+    top_n=12
+)
+fig.show()
+```
+
+```{=html}
+        </div>
+      </details>
+    </section>
+
+
+    <section id="market" class="case-section">
+      <p class="eyebrow"><span class="num">04</span> MARKET INSIGHTS</p>
+      <h2>Salaries, industries, experience &amp; work arrangements</h2>
+      <p class="wide-copy">
+        Skills are only one part of the market. I also compared compensation, industries, experience requirements, and work setup to understand how opportunities differ across data roles.
+      </p>
+
+      <div class="market-summary-grid">
+        <div class="market-summary-card">
+          <span>AI ENGINEER</span>
+          <h3>$180K</h3>
+          <p>Median salary for AI Engineer/Analyst roles.</p>
+        </div>
+        <div class="market-summary-card">
+          <span>DATA SCIENTIST</span>
+          <h3>$127.6K</h3>
+          <p>Median salary for Data Scientist roles.</p>
+        </div>
+        <div class="market-summary-card">
+          <span>DATA ANALYST</span>
+          <h3>$97K</h3>
+          <p>Median salary for Data Analyst roles.</p>
+        </div>
+        <div class="market-summary-card">
+          <span>EXPERIENCE</span>
+          <h3>39.6%</h3>
+          <p>of postings fell into the 3–5 year mid-level group.</p>
+        </div>
+      </div>
+      <p class="chart-label"><br>Salary comparison</p>
+
+```
+
+```{python}
+#| echo: false
+#| warning: false
+#| message: false
+
+salary_data = pd.DataFrame({
+    "Role": ["AI Engineer/Analyst", "Data Scientist", "Other", "Data Analyst"],
+    "Median Salary": [180000, 127550, 127500, 97000]
+})
+
+fig = go.Figure(
+    go.Bar(
+        x=salary_data["Role"],
+        y=salary_data["Median Salary"],
+        text=[f"${v:,.0f}" for v in salary_data["Median Salary"]],
+        textposition="outside",
+        marker_color=["#A98BE3", "#7FB3E6", "#F4B56A", "#6BCB9A"],
+        hovertemplate="<b>%{x}</b><br>Median salary: $%{y:,.0f}<extra></extra>"
+    )
+)
+
+apply_portfolio_style(fig, height=430)
+fig.update_layout(
+    title=dict(text="Median Salary by Role", x=0.01, xanchor="left"),
+    yaxis_title="Median annual salary ($)",
+    xaxis_title="",
+    bargap=0.35
+)
+
+fig.show()
+```
+
+```{=html}
+      <p class="chart-label">Top industries hiring</p>
+```
+
+```{python}
+#| echo: false
+#| warning: false
+#| message: false
+
+industries = [
+    "Real Estate and Rental and Leasing",
+    "Wholesale Trade",
+    "Manufacturing",
+    "Educational Services",
+    "Healthcare & Social Assistance",
+    "Information",
+    "Unclassified Industry",
+    "Admin & Support Services",
+    "Professional & Technical Services",
+    "Finance and Insurance"
+]
+
+industry_df = pd.DataFrame({
+    "Industry": industries,
+    "Data Analyst": [423,464,472,545,607,792,1050,1155,1541,1799],
+    "Data Scientist": [0,2,9,5,17,1,13,1,29,91]
+})
+
+fig = go.Figure()
+
+fig.add_trace(go.Bar(
+    y=industry_df["Industry"],
+    x=industry_df["Data Analyst"],
+    name="Data Analyst",
+    orientation="h",
+    marker_color="#6BCB9A",
+    hovertemplate="<b>%{y}</b><br>Data Analyst: %{x:,}<extra></extra>"
+))
+
+fig.add_trace(go.Bar(
+    y=industry_df["Industry"],
+    x=industry_df["Data Scientist"],
+    name="Data Scientist",
+    orientation="h",
+    marker_color="#7FB3E6",
+    hovertemplate="<b>%{y}</b><br>Data Scientist: %{x:,}<extra></extra>"
+))
+
+apply_portfolio_style(fig, height=540)
+fig.update_layout(
+    title=dict(text="Top Industries Hiring Data & Analytics Roles", x=0.01, xanchor="left"),
+    barmode="stack",
+    xaxis_title="Number of job postings",
+    yaxis_title="",
+    legend_title_text="Role"
+)
+
+fig.show()
+```
+
+```{=html}
+      <p class="chart-label">Experience level distribution</p>
+```
+
+```{python}
+#| echo: false
+#| warning: false
+#| message: false
+
+experience_detail = pd.DataFrame({
+    "Years": list(range(16)),
+    "Postings": [760,1594,3867,3651,2095,6442,1912,1735,2154,334,2616,119,2862,40,118,487]
+})
+
+experience_levels = pd.DataFrame({
+    "Level": ["Lead (9+ yrs)", "Senior (6-8 yrs)", "Mid (3-5 yrs)", "Entry (1-2 yrs)", "Internship (0 yrs)"],
+    "Postings": [6576,5801,12188,5461,760]
+})
+
+fig = make_subplots(
+    rows=1, cols=2,
+    specs=[[{"type": "bar"}, {"type": "pie"}]],
+    subplot_titles=("Distribution by Years of Experience", "Experience Level Breakdown"),
+    column_widths=[0.56, 0.44]
+)
+
+fig.add_trace(
+    go.Bar(
+        x=experience_detail["Years"],
+        y=experience_detail["Postings"],
+        marker_color="#6BCB9A",
+        hovertemplate="Years: %{x}<br>Postings: %{y:,}<extra></extra>",
+        showlegend=False
+    ),
+    row=1, col=1
+)
+
+fig.add_trace(
+    go.Pie(
+        labels=experience_levels["Level"],
+        values=experience_levels["Postings"],
+        hole=.45,
+        textinfo="label+percent",
+        marker=dict(colors=["#6BCB9A","#7FB3E6","#A98BE3","#D9A9E8","#F4B56A"]),
+        hovertemplate="<b>%{label}</b><br>Postings: %{value:,}<br>%{percent}<extra></extra>",
+        showlegend=False
+    ),
+    row=1, col=2
+)
+
+apply_portfolio_style(fig, height=520)
+fig.update_layout(
+    title=dict(text="Experience Requirements", x=0.01, xanchor="left")
+)
+
+fig.update_xaxes(title_text="Minimum Years Required", row=1, col=1)
+fig.update_yaxes(title_text="Number of Postings", row=1, col=1)
+
+fig.show()
+```
+
+```{=html}
+      <p class="chart-label">Experience × work setup</p>
+```
+
+```{python}
+#| echo: false
+#| warning: false
+#| message: false
+
+heatmap_levels = ["Internship (0 yrs)", "Entry (1-2 yrs)", "Mid (3-5 yrs)", "Senior (6-8 yrs)", "Lead (9+ yrs)"]
+work_types = ["hybrid", "onsite", "remote"]
+
+work_setup_values = [
+    [556, 22, 182],
+    [4083, 111, 1267],
+    [9071, 211, 2906],
+    [4343, 126, 1332],
+    [5524, 123, 929]
+]
+
+fig = go.Figure(
+    go.Heatmap(
+        z=work_setup_values,
+        x=work_types,
+        y=heatmap_levels,
+        text=work_setup_values,
+        texttemplate="%{text:,}",
+        colorscale="Purples",
+        hovertemplate="Experience: %{y}<br>Work setup: %{x}<br>Postings: %{z:,}<extra></extra>"
+    )
+)
+
+apply_portfolio_style(fig, height=440)
+fig.update_layout(
+    title=dict(text="Experience Level × Work Setup", x=0.01, xanchor="left"),
+    xaxis_title="Work setup",
+    yaxis_title="Experience level"
+)
+
+fig.show()
+```
+
+```{=html}
+      <div class="insight-banner">
+        <strong>✧ &nbsp; Market insight</strong>
+        <p>
+          Compensation rises with specialization: AI Engineer/Analyst roles had the highest median salary, followed by Data Scientists and Data Analysts. Hiring was concentrated in Finance &amp; Insurance and Professional &amp; Technical Services, while mid-level roles represented the largest experience group. Hybrid work dominated every experience level, with remote work consistently more common than onsite-only arrangements.
+        </p>
+      </div>
+    </section>
+
+
+    <section id="clustering" class="case-section ml-section">
+  <p class="eyebrow"><span class="num">05</span> UNSUPERVISED LEARNING</p>
+
+  <div class="ml-intro">
+    <div>
+      <h2>Can job postings reveal natural career groupings without relying on job titles?</h2>
+
+      <p class="wide-copy">
+        Job titles are not always consistent across employers. I used K-Means clustering
+        to explore whether data-related job postings would naturally form groups based
+        on their underlying characteristics rather than their predefined role labels.
+      </p>
+
+      <p class="wide-copy">
+        K-Means is an unsupervised learning algorithm, so the model was not given a
+        target variable to predict. Instead, it searched for similarity across salary,
+        minimum experience, education, and engineered technical-skill indicators.
+      </p>
+    </div>
+
+    <div class="ml-method-card">
+      <span class="method-label">MODEL</span>
+      <strong>K-Means</strong>
+      <p>Unsupervised clustering</p>
+      <div class="method-tags">
+        <span>PySpark ML</span>
+        <span>k = 4</span>
+        <span>PCA</span>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="ml-subsection">
+    <p class="mini-eyebrow">MODEL PIPELINE</p>
+    <h3>From job postings to interpretable clusters</h3>
+
+    <div class="ml-pipeline">
+      <div class="pipeline-step">
+        <div class="pipeline-icon"><i class="bi bi-funnel"></i></div>
+        <span>01</span>
+        <strong>Filter</strong>
+        <p>Focus on relevant data roles</p>
+      </div>
+
+      <div class="pipeline-arrow">→</div>
+
+      <div class="pipeline-step">
+        <div class="pipeline-icon"><i class="bi bi-sliders"></i></div>
+        <span>02</span>
+        <strong>Engineer</strong>
+        <p>Create binary skill indicators</p>
+      </div>
+
+      <div class="pipeline-arrow">→</div>
+
+      <div class="pipeline-step">
+        <div class="pipeline-icon"><i class="bi bi-bar-chart"></i></div>
+        <span>03</span>
+        <strong>Scale</strong>
+        <p>Standardize model features</p>
+      </div>
+
+      <div class="pipeline-arrow">→</div>
+
+      <div class="pipeline-step">
+        <div class="pipeline-icon"><i class="bi bi-graph-up"></i></div>
+        <span>04</span>
+        <strong>Select k</strong>
+        <p>Compare WSSSE solutions</p>
+      </div>
+
+      <div class="pipeline-arrow">→</div>
+
+      <div class="pipeline-step">
+        <div class="pipeline-icon"><i class="bi bi-diagram-3"></i></div>
+        <span>05</span>
+        <strong>Cluster</strong>
+        <p>Fit the K-Means model</p>
+      </div>
+
+      <div class="pipeline-arrow">→</div>
+
+      <div class="pipeline-step">
+        <div class="pipeline-icon"><i class="bi bi-search"></i></div>
+        <span>06</span>
+        <strong>Interpret</strong>
+        <p>PCA + cluster profiles</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="ml-subsection">
+    <p class="mini-eyebrow">01 — FEATURE ENGINEERING</p>
+    <h3>Turning skill text into model-ready variables</h3>
+
+    <p class="wide-copy">
+      I first combined the available skill fields into a single text representation.
+      I then created binary indicators for a selected set of technical skills so that
+      each posting could be represented numerically.
+    </p>
+
+    <div class="feature-chips">
+      <span><i class="bi bi-currency-dollar"></i> Salary</span>
+      <span><i class="bi bi-briefcase"></i> Experience</span>
+      <span><i class="bi bi-mortarboard"></i> Education</span>
+      <span><i class="bi bi-code-slash"></i> Technical Skills</span>
+    </div>
+
+    <div class="ml-code-group">
+      <div class="code-card">
+        <div class="code-toolbar">
+          <div class="window-dots"><b></b><b></b><b></b></div>
+          <span class="language-pill">PySpark</span>
+        </div>
+        <pre><code class="language-python"># combine all skill text
+from pyspark.sql.functions import concat_ws, coalesce, lit
+
+skill_cols = [
+    "SKILLS_NAME",
+    "SPECIALIZED_SKILLS_NAME",
+    "SOFTWARE_SKILLS_NAME",
+    "COMMON_SKILLS_NAME"
+]
+
+df_roles = df_roles.withColumn(
+    "ALL_SKILLS_TEXT",
+    lower(
+        concat_ws(
+            " ",
+            *[coalesce(col(c), lit("")) for c in skill_cols]
+        )
+    )
+)</code></pre>
+      </div>
+
+      <div class="code-card">
+        <div class="code-toolbar">
+          <div class="window-dots"><b></b><b></b><b></b></div>
+          <span class="language-pill">PySpark</span>
+        </div>
+        <pre><code class="language-python"># create binary skill features
+from pyspark.sql.functions import regexp_extract
+
+technical_skills = [
+    "python","sql","excel","tableau","power bi",
+    "machine learning","artificial intelligence",
+    "data analysis","statistics","math",
+    "linear algebra","probability","data visualization",
+    "spark","aws","computer science"
+]
+
+df_skill_features = df_roles
+
+for skill in technical_skills:
+    clean_name = skill.replace(" ", "_").replace("-", "_").replace("/", "_")
+    pattern = rf"{skill.lower()}"
+    
+    df_skill_features = df_skill_features.withColumn(
+        f"skill_{clean_name}",
+        (regexp_extract(col("ALL_SKILLS_TEXT"), pattern, 0) != "").cast("int")
+    )</code></pre>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="ml-subsection">
+    <p class="mini-eyebrow">02 — MODEL FEATURES &amp; PREPROCESSING</p>
+    <h3>Putting every feature on a comparable scale</h3>
+
+    <p class="wide-copy">
+      The final model combined salary, minimum years of experience, education level,
+      and the engineered skill indicators. Missing observations were removed for the
+      selected model features before assembling them into a feature vector.
+    </p>
+
+    <div class="ml-code-group">
+      <div class="code-card">
+        <div class="code-toolbar">
+          <div class="window-dots"><b></b><b></b><b></b></div>
+          <span class="language-pill">PySpark ML</span>
+        </div>
+        <pre><code class="language-python"># define feature columns
+features_cols = [
+    "SALARY",
+    "MIN_YEARS_EXPERIENCE_CLEANED",
+    "MIN_EDULEVELS"
+] + [c for c in df_skill_features.columns if c.startswith("skill_")]
+# drop missing values
+df_model = df_skill_features.dropna(subset=features_cols)
+# assmble features
+from pyspark.ml.feature import VectorAssembler
+
+assembler = VectorAssembler(
+    inputCols=features_cols,
+    outputCol="features"
+)
+
+df_model = assembler.transform(df_model)</code></pre>
+      </div>
+    </div>
+
+    <div class="ml-callout">
+      <div class="callout-icon"><i class="bi bi-rulers"></i></div>
+      <div>
+        <strong>Why standardize the features?</strong>
+        <p>
+          K-Means relies on distance. Salary is measured on a much larger numerical
+          scale than a binary skill variable, so standardization helps prevent a
+          high-magnitude feature from dominating the distance calculation simply
+          because of its units.
+        </p>
+      </div>
+    </div>
+
+    <div class="ml-code-group">
+      <div class="code-card">
+        <div class="code-toolbar">
+          <div class="window-dots"><b></b><b></b><b></b></div>
+          <span class="language-pill">PySpark ML</span>
+        </div>
+        <pre><code class="language-python">#scale features
+from pyspark.ml.feature import StandardScaler
+
+scaler = StandardScaler(
+    inputCol="features",
+    outputCol="scaled_features",
+    withMean=True,
+    withStd=True
+)
+
+scaler_model = scaler.fit(df_model)
+df_model = scaler_model.transform(df_model)</code></pre>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="ml-subsection">
+    <p class="mini-eyebrow">03 — CHOOSING THE NUMBER OF CLUSTERS</p>
+    <h3>How many groups best represent the job market?</h3>
+
+    <p class="wide-copy">
+      I evaluated candidate values of k using within-cluster sum of squared errors
+      (WSSSE). The error declined consistently from k = 2 through k = 4, but there
+      was no sharp elbow. That gradual pattern suggested that the postings did not
+      naturally separate into perfectly distinct groups.
+    </p>
+
+    <div class="ml-code-group">
+      <div class="code-card">
+        <div class="code-toolbar">
+          <div class="window-dots"><b></b><b></b><b></b></div>
+          <span class="language-pill">PySpark ML</span>
+        </div>
+        <pre><code class="language-python"># elbow method
+from pyspark.ml.clustering import KMeans
+
+cost = []
+k_values = range(2, 5)
+
+for k in k_values:
+    kmeans = KMeans(k=k, featuresCol="scaled_features", seed=42)
+    model = kmeans.fit(df_model)
+    cost.append(model.summary.trainingCost)</code></pre>
+      </div>
+
+      <div class="code-card">
+        <div class="code-toolbar">
+          <div class="window-dots"><b></b><b></b><b></b></div>
+          <span class="language-pill">Matplotlib</span>
+        </div>
+        <pre><code class="language-python">import matplotlib.pyplot as plt
+
+plt.plot(k_values, cost, marker='o')
+plt.xlabel("Number of Clusters (k)")
+plt.ylabel("Within Set Sum of Squared Errors (WSSSE)")
+plt.title("Elbow Method for Optimal k")
+plt.show()</code></pre>
+      </div>
+    </div>
+
+    <div class="ml-decision">
+      <div class="decision-number">4</div>
+      <div>
+        <span>FINAL CLUSTER COUNT</span>
+        <h3>Why k = 4?</h3>
+        <p>
+          I selected four clusters as a balance between model complexity and
+          interpretability. Because the WSSSE curve did not contain a dramatic elbow,
+          I treat k = 4 as an exploratory modeling choice rather than a definitive
+          “true” number of occupational groups.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="ml-subsection">
+    <p class="mini-eyebrow">04 — FINAL MODEL</p>
+
+    <div class="analysis-heading">
+      <div>
+        <h3>Fitting K-Means</h3>
+        <p>The final model used four clusters and a fixed seed for reproducibility.</p>
+      </div>
+      <span class="language-pill">PySpark ML</span>
+    </div>
+
+    <div class="code-card">
+      <div class="code-toolbar">
+        <div class="window-dots"><b></b><b></b><b></b></div>
+      </div>
+      <pre><code class="language-python"># choose k = 4 (this is reasonable because the roles split into 3 and we can validate it against role_category )
+kmeans = KMeans(k=4, featuresCol="scaled_features", seed=42)
+model = kmeans.fit(df_model)
+df_clustered = model.transform(df_model)</code></pre>
+    </div>
+  </div>
+
+
+  <div class="ml-subsection">
+    <p class="mini-eyebrow">05 — INTERPRETING THE CLUSTERS</p>
+    <h3>What did the model actually find?</h3>
+
+    <p class="wide-copy">
+      I profiled each cluster by examining its dominant skills and broader job
+      characteristics. The resulting groups were interpretable, but they represented
+      different levels and types of specialization rather than four perfectly isolated
+      occupations.
+    </p>
+
+    <div class="cluster-profile-grid">
+      <div class="cluster-profile">
+        <div class="cluster-number">C0</div>
+        <div>
+          <span>PROFILE</span>
+          <h3>Traditional Analytics</h3>
+          <p>SQL-heavy analytical work with less emphasis on advanced ML and statistical skills.</p>
+        </div>
+      </div>
+
+      <div class="cluster-profile">
+        <div class="cluster-number">C1</div>
+        <div>
+          <span>PROFILE</span>
+          <h3>Data Science</h3>
+          <p>Greater emphasis on machine learning, statistics, probability, and quantitative depth.</p>
+        </div>
+      </div>
+
+      <div class="cluster-profile">
+        <div class="cluster-number">C2</div>
+        <div>
+          <span>PROFILE</span>
+          <h3>Generalist / Mixed</h3>
+          <p>A more heterogeneous group with weaker concentration around one technical specialty.</p>
+        </div>
+      </div>
+
+      <div class="cluster-profile">
+        <div class="cluster-number">C3</div>
+        <div>
+          <span>PROFILE</span>
+          <h3>Business Intelligence</h3>
+          <p>Strong SQL combined with BI, dashboarding, and visualization-oriented tools.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="ml-subsection">
+    <p class="mini-eyebrow">06 — PCA VISUALIZATION</p>
+    <h3>The clusters overlap — and that is part of the result.</h3>
+
+    <p class="wide-copy">
+      I used Principal Component Analysis (PCA) to project the high-dimensional model
+      space into two dimensions for visualization. The resulting clusters showed
+      substantial overlap rather than clean separation.
+    </p>
+
+    <div class="ml-code-group">
+      <div class="code-card">
+        <div class="code-toolbar">
+          <div class="window-dots"><b></b><b></b><b></b></div>
+          <span class="language-pill">PySpark / PCA</span>
+        </div>
+        <pre><code class="language-python"># PCA on clustered data
+pca_model = pca.fit(df_clustered)
+df_pca = pca_model.transform(df_clustered)
+
+# extract x/y
+df_pca = df_pca.withColumn("pca_array", vector_to_array(col("pca_features"))) \
+               .withColumn("x", col("pca_array")[0]) \
+               .withColumn("y", col("pca_array")[1])</code></pre>
+      </div>
+
+      <div class="code-card">
+        <div class="code-toolbar">
+          <div class="window-dots"><b></b><b></b><b></b></div>
+          <span class="language-pill">Matplotlib</span>
+        </div>
+        <pre><code class="language-python">pdf = df_pca.select("x", "y", "prediction").toPandas()
+
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(10, 6))
+
+for cluster in sorted(pdf["prediction"].unique()):
+    subset = pdf[pdf["prediction"] == cluster]
+    plt.scatter(subset["x"], subset["y"], label=f"Cluster {cluster}", alpha=0.6)
+
+plt.xlabel("Principal Component 1")
+plt.ylabel("Principal Component 2")
+plt.title("KMeans Clusters Visualized with PCA")
+plt.legend()
+plt.show()</code></pre>
+      </div>
+    </div>
+
+    <div class="insight-banner ml-main-finding">
+      <span class="finding-kicker">KEY MODEL FINDING</span>
+      <strong>Data careers appear to exist on a spectrum.</strong>
+      <p>
+        The PCA overlap suggests that traditional analytics, BI, data science, and
+        AI-oriented work share many underlying capabilities. The roles differ more
+        in technical depth and skill composition than through completely rigid
+        occupational boundaries.
+      </p>
+    </div>
+  </div>
+
+
+  <div class="ml-subsection">
+    <p class="mini-eyebrow">07 — VALIDATING THE INTERPRETATION</p>
+    <h3>What else did I compare?</h3>
+
+    <div class="model-validation-grid">
+      <div class="validation-card">
+        <i class="bi bi-buildings"></i>
+        <h3>Industry mix</h3>
+        <p>
+          No cluster was dominated by a single industry. The mix across sectors
+          supports the interpretation that the groups captured transferable skill
+          profiles rather than simply separating postings by NAICS sector.
+        </p>
+      </div>
+
+      <div class="validation-card">
+        <i class="bi bi-currency-dollar"></i>
+        <h3>Salary patterns</h3>
+        <p>
+          Compensation generally increased with specialization, although the
+          mixed/generalist cluster was an exception. That suggests salary is also
+          influenced by seniority, domain expertise, and other characteristics
+          beyond technical skill intensity.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="ml-subsection">
+    <p class="mini-eyebrow">MODEL LIMITATIONS &amp; NEXT TESTS</p>
+
+    <div class="limitation-card">
+      <i class="bi bi-info-circle"></i>
+      <div>
+        <h3>Clustering is exploratory, not ground truth.</h3>
+        <p>
+          K-Means assumes distance-based, relatively compact clusters. The gradual
+          WSSSE curve and PCA overlap indicate that this labor-market data does not
+          naturally divide into sharply separated groups. PCA also compresses the
+          full feature space into two dimensions, so some structure can be lost in
+          visualization.
+        </p>
+        <p>
+          If I extended the model, I would test a wider range of k values using
+          silhouette scores, compare cluster membership against the original role
+          categories, and evaluate cluster stability across several random seeds.
+          Those checks would help determine whether the observed groupings are
+          consistently reproducible or primarily exploratory.
+        </p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+    <section id="takeaways" class="case-section takeaway-section">
+      <p class="eyebrow"><span class="num">06</span> KEY TAKEAWAYS</p>
+      <h2>What I learned from the market</h2>
+
+      <div class="takeaway-grid">
+        <div>
+          <span>01</span>
+          <h3>Build the foundation</h3>
+          <p>SQL and Python remain baseline expectations across data-driven roles.</p>
+        </div>
+        <div>
+          <span>02</span>
+          <h3>Specialization matters</h3>
+          <p>Cloud, machine learning, ETL, databases, and pipelines create pathways toward more technical roles.</p>
+        </div>
+        <div>
+          <span>03</span>
+          <h3>Skills are transferable</h3>
+          <p>Role and industry boundaries overlap, making adaptable skill sets more useful than optimizing for a single title.</p>
+        </div>
+      </div>
+
+      <div class="insight-banner">
+        <strong>How the findings shaped my own roadmap</strong>
+        <p>
+          I used the analysis to identify the capabilities I wanted to strengthen next — moving from analytics foundations toward databases, ETL, data pipelines, cloud technologies, and end-to-end data systems.
+        </p>
+      </div>
+
+      <div class="roadmap-strip">
+        <div>
+          <small>01</small>
+          <strong>Foundation</strong>
+          <p>SQL · Python · analytics fundamentals</p>
+        </div>
+        <div>
+          <small>02</small>
+          <strong>Advanced Analytics</strong>
+          <p>Statistics · visualization · communication</p>
+        </div>
+        <div>
+          <small>03</small>
+          <strong>Data Engineering</strong>
+          <p>Databases · ETL · pipelines</p>
+        </div>
+        <div>
+          <small>04</small>
+          <strong>Cloud &amp; Systems</strong>
+          <p>AWS · Spark · end-to-end projects</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="literature" class="case-section">
+      <p class="eyebrow"><span class="num">07</span> LITERATURE REVIEW</p>
+      <h2>Do the findings align with other labor-market research?</h2>
+
+      <div class="literature-box">
+        <h3>Skills-based hiring &amp; hybrid skill sets</h3>
+
+        <p>
+          Kobets et al. (2024) analyzed 3,744 job postings and used K-means clustering to identify four data-role groupings: Data Analyst &amp; Engineer, Data Platform Engineer, Data Science &amp; Engineering Specialist, and Cloud Data Engineer. Their results similarly suggest that modern data roles are increasingly defined by combinations of competencies rather than job titles alone.
+        </p>
+
+        <p>
+          The study highlights Python, SQL, cloud platforms such as AWS and Azure, data engineering, analytics, and machine learning as recurring requirements. It also identifies a gap between academic training and industry needs, reinforcing the importance of continuous upskilling and hybrid technical/business skill sets.
+        </p>
+
+        <p>
+          This provides useful external support for the patterns in my own analysis: SQL and Python function as core skills, specialized tools distinguish different career paths, and skill composition often provides a clearer picture of role structure than title alone.
+        </p>
+
+        <p class="source-note">
+          Reference:
+          <a href="https://aait.od.ua/index.php/journal/article/view/154/154">
+            Kobets, Gulin, and Nosov (2024)
+          </a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site-footer container">
+  <strong>ESSHA KHAN</strong>
+  <div>
+    <a href="/projects/">← All projects</a>
+    &nbsp; · &nbsp;
+    <a href="https://github.com/esshak-bu/job-market-analysis-project-2024">GitHub</a>
+    &nbsp; · &nbsp;
+    <a href="/contact.html">Contact</a>
+  </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const navLinks = Array.from(document.querySelectorAll("#case-scroll-nav a"));
+  const sections = navLinks
+    .map(link => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
+
+  function setActive(id) {
+    navLinks.forEach(link => {
+      const active = link.getAttribute("href") === "#" + id;
+      link.classList.toggle("active", active);
+    });
+  }
+
+  navLinks.forEach(link => {
+    link.addEventListener("click", function (e) {
+      const target = document.querySelector(this.getAttribute("href"));
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      setActive(target.id);
+    });
+  });
+
+  const observer = new IntersectionObserver(
+    entries => {
+      const visible = entries
+        .filter(entry => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+      if (visible.length) setActive(visible[0].target.id);
+    },
+    {
+      root: null,
+      rootMargin: "-18% 0px -60% 0px",
+      threshold: [0.05, 0.15, 0.3, 0.5]
+    }
+  );
+
+  sections.forEach(section => observer.observe(section));
+
+  window.addEventListener("scroll", function () {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 8) {
+      setActive(sections[sections.length - 1].id);
+    }
+  });
+});
+</script>
+```

@@ -1,27 +1,37 @@
 ---
 title: "Contact"
-format:
-  html:
-    theme: cosmo
-    toc: false
-    page-layout: full
+page-layout: full
 ---
-Feel free to reach out for opportunities, collaborations, or just to connect.
 
-<div style="margin-top: 20px;">
+<header class="site-header container">
+  <a class="brand" href="/">ESSHA KHAN</a>
+  <nav class="nav-links"><a href="/projects/">Work</a><a href="/about.html">About</a><a href="/resume.pdf">Resume</a><a class="active" href="/contact.html">Contact</a></nav>
+  <div class="status-pill"><span></span>Open to opportunities</div>
+</header>
 
-  <p style="font-size: 18px;">
-    📧 <strong>Email:</strong><br>
-    <a href="mailto:esshak@bu.edu" style="text-decoration: none; color: #000;">
-      esshak@bu.edu
-    </a>
-  </p>
+<main class="container page-main contact-layout">
+  <section class="contact-copy">
+    <p class="eyebrow">CONTACT</p>
+    <h1>Let’s build something meaningful.</h1>
+    <p>I’m always open to new opportunities, collaborations, or just a good conversation about data.</p>
+    <div class="contact-links">
+      <a href="mailto:you@example.com"><b>✉</b><span>Email<small>you@example.com</small></span></a>
+      <a href="#"><b>in</b><span>LinkedIn<small>linkedin.com/in/yourname</small></span></a>
+      <a href="#"><b>⌘</b><span>GitHub<small>github.com/yourusername</small></span></a>
+      <div><b>●</b><span>Location<small>Boston, MA</small></span></div>
+    </div>
+  </section>
 
-  <p style="font-size: 18px; margin-top: 20px;">
-    🔗 <strong>LinkedIn:</strong><br>
-    <a href="https://www.linkedin.com/in/essha-khan/" target="_blank" style="text-decoration: none; color: #000;">
-      linkedin.com/in/essha-khan
-    </a>
-  </p>
+  <section class="contact-card">
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <label>Name<input type="text" name="name" placeholder="Your name" required></label>
+      <label>Email<input type="email" name="email" placeholder="you@example.com" required></label>
+      <label>Message<textarea name="message" rows="6" placeholder="I'd love to connect..." required></textarea></label>
+      <button class="btn btn-dark" type="submit">Send message →</button>
+    </form>
+    <div class="blob blob-a"></div><div class="blob blob-b"></div>
+    <p class="hand-note">Looking forward<br>to hearing from you!</p>
+  </section>
+</main>
 
-</div>
+<footer class="site-footer container"><strong>ESSHA KHAN</strong><div>Let’s connect &nbsp; LinkedIn · GitHub · Email</div></footer>

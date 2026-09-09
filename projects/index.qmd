@@ -1,0 +1,69 @@
+---
+title: "Projects"
+page-layout: full
+---
+
+<header class="site-header container">
+  <a class="brand" href="/">ESSHA KHAN</a>
+  <nav class="nav-links"><a class="active" href="/projects/">Work</a><a href="/about.html">About</a><a href="/resume.pdf">Resume</a><a href="/contact.html">Contact</a></nav>
+  <div class="status-pill"><span></span>Open to opportunities</div>
+</header>
+
+<main class="container page-main">
+  <section class="projects-intro">
+    <div>
+      <p class="eyebrow">WORK</p>
+      <h1>A collection of projects<br>turning questions into insights.</h1>
+    </div>
+    <p>Each project is an opportunity to explore a real-world problem, learn something new, and tell a story with data.</p>
+  </section>
+
+  <div class="filter-row" data-project-filters>
+    <button class="active" data-filter="all">All</button>
+    <button data-filter="analysis">Data Analysis</button>
+    <button data-filter="ml">Machine Learning</button>
+    <button data-filter="viz">Data Visualization</button>
+    <button data-filter="sql">SQL</button>
+    <button data-filter="cloud">Cloud</button>
+  </div>
+
+  <div class="project-grid project-grid-large">
+    <a class="project-card lavender" href="/projects/job-market/" data-tags="analysis viz sql cloud">
+      <div class="card-topline"><span>01</span><span>JOB MARKET ANALYSIS</span></div>
+      <div class="mini-viz dot-cloud"></div>
+      <h2>U.S. Job Market Analysis</h2>
+      <p>Exploring trends in data, AI, and tech roles using 1M+ job postings.</p>
+      <div class="tags"><span>Python</span><span>PySpark</span><span>AWS</span><span>SQL</span></div>
+      <span class="project-link">View project →</span>
+    </a>
+
+    <a class="project-card mint" href="#" data-tags="analysis ml viz">
+      <div class="card-topline"><span>02</span><span>STOCK ANALYSIS</span></div>
+      <div class="mini-viz line-viz"><svg viewBox="0 0 500 170" preserveAspectRatio="none"><polyline points="0,145 55,125 105,130 150,90 200,108 245,54 290,80 340,44 390,66 445,22 500,34"/><polyline class="line-two" points="0,155 55,140 105,112 150,126 200,94 245,105 290,69 340,82 390,42 445,60 500,20"/></svg></div>
+      <h2>Stock Sentiment & Returns</h2>
+      <p>Using NLP to analyze earnings calls and model stock performance.</p>
+      <div class="tags"><span>Python</span><span>NLP</span><span>Regression</span><span>Data Viz</span></div>
+      <span class="project-link">View project →</span>
+    </a>
+
+    <a class="project-card peach" href="#" data-tags="analysis viz sql">
+      <div class="card-topline"><span>03</span><span>FOOD DELIVERY ANALYTICS</span></div>
+      <div class="mini-viz map-viz"><span style="left:18%;top:48%"></span><span style="left:29%;top:31%"></span><span style="left:42%;top:57%"></span><span style="left:56%;top:36%"></span><span style="left:70%;top:52%"></span><span style="left:79%;top:26%"></span></div>
+      <h2>Food Delivery Analytics</h2>
+      <p>Analyzing order, customer, and delivery data to uncover what drives market success.</p>
+      <div class="tags"><span>SQL</span><span>Python</span><span>Power BI</span></div>
+      <span class="project-link">View project →</span>
+    </a>
+
+    <a class="project-card blue" href="#" data-tags="ml analysis">
+      <div class="card-topline"><span>04</span><span>MACHINE LEARNING</span></div>
+      <div class="mini-viz bars-viz"></div>
+      <h2>Customer Churn Prediction</h2>
+      <p>Building a machine-learning model to predict churn and understand key drivers.</p>
+      <div class="tags"><span>Python</span><span>Scikit-learn</span><span>Feature Engineering</span></div>
+      <span class="project-link">View project →</span>
+    </a>
+  </div>
+</main>
+
+<footer class="site-footer container"><strong>ESSHA KHAN</strong><div>Let’s connect &nbsp; LinkedIn · GitHub · Email</div></footer>

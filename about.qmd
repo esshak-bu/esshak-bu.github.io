@@ -1,51 +1,38 @@
 ---
-title: "About Me"
-format:
-  html:
-    theme: cosmo
-    toc: false
-    page-layout: full
+title: "About"
+page-layout: full
 ---
-<style>
-.card {
-  border-radius: 18px !important;
-  background-color: #f8f9fa !important;
-  border: 1px solid #e9ecef !important;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-}
-.section-spacing {
-  margin-top: 50px;
-}
-</style>
 
-<div style="max-width: 250px; margin: 40 px auto; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.15);">
-  <img src="visuals/EsshaKhan_Headshot@1x.jpg" style="width: 100%; height: auto; display: block;">
-</div>
+<header class="site-header container">
+  <a class="brand" href="/">ESSHA KHAN</a>
+  <nav class="nav-links"><a href="/projects/">Work</a><a class="active" href="/about.html">About</a><a href="/resume.pdf">Resume</a><a href="/contact.html">Contact</a></nav>
+  <div class="status-pill"><span></span>Open to opportunities</div>
+</header>
 
-<br><br>
+<main class="container page-main">
+<section class="about-page">
+  <div class="about-copy">
+    <p class="eyebrow">ABOUT</p>
+    <h1>Curious about data,<br>people, and the why behind it all.</h1>
+    <p>I’m Essha, a data analyst who is passionate about using data to solve real-world problems and tell meaningful stories. I enjoy the entire process — from exploring messy data to building visualizations that make insights clear and actionable.</p>
+    <p>My background combines analytics, business thinking, and visual communication, which shapes how I approach projects: technically rigorous, but always designed for a real person to understand.</p>
+  </div>
 
-::: {.card .p-4 .mb-4}
-## Hi, I'm Essha
+  <div class="about-portrait">
+    <div class="blob blob-a"></div><div class="blob blob-b"></div>
+    <div class="portrait-card"><span>Add your portrait</span></div>
+    <p class="hand-note">A few of my<br>favorite things →</p>
+  </div>
 
-I'm a Master’s candidate in **Applied Business Data Analytics** at **Boston University** with a strong interest in bridging data analytics, machine learning, and business strategy.
+  <div class="journey">
+    <p class="eyebrow">MY JOURNEY</p>
+    <div class="timeline">
+      <div><span></span><b>M.S. in Applied Business Data Analytics</b><small>Boston University · 2024–2026</small></div>
+      <div><span></span><b>B.Tech in Graphic Communications Management</b><small>Toronto Metropolitan University</small></div>
+      <div><span></span><b>Research & analytics experience</b><small>Projects spanning data, UX, cloud analytics, and machine learning</small></div>
+    </div>
+  </div>
+</section>
+</main>
 
-My academic background, combined with hands on experience in **Python, SQL, Power BI, and Plotly**, has equipped me to transform complex datasets into actionable insights.
-
-I am particularly interested in understanding how data can drive decision making in real world business contexts. My recent work includes building predictive models, analyzing large scale job market datasets using **PySpark and AWS**, and exploring financial data to uncover trends and patterns.
-
-Professionally, I am interested in pursuing roles in **data analytics** or **product analytics**, where I can combine my analytical skills with my background in design and user experience.
-:::
-
-::: {.card .p-4 .mb-4}
-## Skills
-
-- **Programming Languages:** Python, SQL, R  
-- **Data Analysis:** pandas, data cleaning, exploratory data analysis, feature engineering  
-- **Big Data Tools:** PySpark, Apache Spark  
-- **Data Visualization:** Power BI, Plotly, matplotlib  
-- **Cloud Technologies:** AWS EC2, data workflows  
-- **Machine Learning:** regression modeling, predictive analytics  
-- **Tools & Platforms:** Jupyter Notebook, Git, Excel  
-- **Core Strengths:** analytical thinking, problem solving, attention to detail  
-- **Additional Strengths:** data storytelling, business insight, user focused design mindset  
-:::
+<footer class="site-footer container"><strong>ESSHA KHAN</strong><div>Let’s connect &nbsp; LinkedIn · GitHub · Email</div></footer>
