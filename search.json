@@ -1,5 +1,19 @@
 [
   {
+    "objectID": "about.html#hi-im-essha",
+    "href": "about.html#hi-im-essha",
+    "title": "About Me",
+    "section": "Hi, I’m Essha",
+    "text": "Hi, I’m Essha\nI’m a Master’s candidate in Applied Business Data Analytics at Boston University with a strong interest in bridging data analytics, machine learning, and business strategy.\nMy academic background, combined with hands on experience in Python, SQL, Power BI, and Plotly, has equipped me to transform complex datasets into actionable insights.\nI am particularly interested in understanding how data can drive decision making in real world business contexts. My recent work includes building predictive models, analyzing large scale job market datasets using PySpark and AWS, and exploring financial data to uncover trends and patterns.\nProfessionally, I am interested in pursuing roles in data analytics or product analytics, where I can combine my analytical skills with my background in design and user experience."
+  },
+  {
+    "objectID": "about.html#skills",
+    "href": "about.html#skills",
+    "title": "About Me",
+    "section": "Skills",
+    "text": "Skills\n\nProgramming Languages: Python, SQL, R\n\nData Analysis: pandas, data cleaning, exploratory data analysis, feature engineering\n\nBig Data Tools: PySpark, Apache Spark\n\nData Visualization: Power BI, Plotly, matplotlib\n\nCloud Technologies: AWS EC2, data workflows\n\nMachine Learning: regression modeling, predictive analytics\n\nTools & Platforms: Jupyter Notebook, Git, Excel\n\nCore Strengths: analytical thinking, problem solving, attention to detail\n\nAdditional Strengths: data storytelling, business insight, user focused design mindset"
+  },
+  {
     "objectID": "fooddeliveryplatform.html",
     "href": "fooddeliveryplatform.html",
     "title": "Delivering Insights From a Food Delivery Marketplace",
@@ -159,20 +173,6 @@
     "title": "Welcome",
     "section": "✨ A Bit More About Me",
     "text": "✨ A Bit More About Me\nBeyond data and analytics, here are a few things that make me, me:\n\n🐱 Cat owner to the cutest British Shorthair\n\n🍵 Matcha enthusiast who appreciates a well-crafted cup\n\n📸 Enjoy portrait photography"
-  },
-  {
-    "objectID": "about.html#hi-im-essha",
-    "href": "about.html#hi-im-essha",
-    "title": "About Me",
-    "section": "Hi, I’m Essha",
-    "text": "Hi, I’m Essha\nI’m a Master’s candidate in Applied Business Data Analytics at Boston University with a strong interest in bridging data analytics, machine learning, and business strategy.\nMy academic background, combined with hands on experience in Python, SQL, Power BI, and Plotly, has equipped me to transform complex datasets into actionable insights.\nI am particularly interested in understanding how data can drive decision making in real world business contexts. My recent work includes building predictive models, analyzing large scale job market datasets using PySpark and AWS, and exploring financial data to uncover trends and patterns.\nProfessionally, I am interested in pursuing roles in data analytics or product analytics, where I can combine my analytical skills with my background in design and user experience."
-  },
-  {
-    "objectID": "about.html#skills",
-    "href": "about.html#skills",
-    "title": "About Me",
-    "section": "Skills",
-    "text": "Skills\n\nProgramming Languages: Python, SQL, R\n\nData Analysis: pandas, data cleaning, exploratory data analysis, feature engineering\n\nBig Data Tools: PySpark, Apache Spark\n\nData Visualization: Power BI, Plotly, matplotlib\n\nCloud Technologies: AWS EC2, data workflows\n\nMachine Learning: regression modeling, predictive analytics\n\nTools & Platforms: Jupyter Notebook, Git, Excel\n\nCore Strengths: analytical thinking, problem solving, attention to detail\n\nAdditional Strengths: data storytelling, business insight, user focused design mindset"
   },
   {
     "objectID": "contact.html",
