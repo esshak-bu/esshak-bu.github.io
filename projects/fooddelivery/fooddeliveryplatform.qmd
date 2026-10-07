@@ -1,0 +1,281 @@
+---
+title: "Delivering Insights From a Food Delivery Marketplace"
+page-layout: full
+title-block-banner: false
+---
+
+```{=html}
+<style>
+#title-block-header, .quarto-title-block { display: none !important; }
+
+.case-sidebar nav a { transition: background .18s ease, color .18s ease, transform .18s ease; }
+.case-sidebar nav a.active { background: #9a4d00; color: #ffffff !important; border-radius: 8px; transform: translateX(2px); }
+
+.research-grid, .market-summary-grid, .finding-grid { display: grid; gap: 14px; margin-top: 20px; }
+.research-grid { grid-template-columns: repeat(2, 1fr); }
+.research-card, .market-summary-card, .finding-card { border: 1px solid #f0e3d2; border-radius: 14px; padding: 18px; background: #ffffff; }
+.research-card:nth-child(1), .market-summary-card:nth-child(1) { background: linear-gradient(135deg, #fff4df, #fffaf2); }
+.research-card:nth-child(2), .market-summary-card:nth-child(2) { background: linear-gradient(135deg, #fff8c9, #fffdf0); }
+.research-card:nth-child(3), .market-summary-card:nth-child(3) { background: linear-gradient(135deg, #ffead7, #fff8f2); }
+.research-card:nth-child(4), .market-summary-card:nth-child(4) { background: linear-gradient(135deg, #fff0b8, #fffaf0); }
+.research-card span, .market-summary-card span, .finding-card span { display: block; color: #d97706; font-size: 11px; font-weight: 700; letter-spacing: .08em; margin-bottom: 8px; }
+.research-card h3, .market-summary-card h3, .finding-card h3 { margin: 0 0 8px; font-size: 17px; }
+.research-card p, .market-summary-card p, .finding-card p { margin: 0; color: #667085; font-size: 13px; line-height: 1.55; }
+
+.rationale-box, .literature-box { margin-top: 20px; border: 1px solid #f0e3d2; border-radius: 14px; padding: 22px 24px; background: #fffdf9; }
+.rationale-box p, .literature-box p { color: #596577; line-height: 1.72; }
+
+.insight-banner { margin-top: 18px; padding: 20px 22px; border-radius: 12px; background: linear-gradient(90deg, #fff4d6, #fff9e8); border: 1px solid #f5d99b; }
+.insight-banner strong { display: block; margin-bottom: 7px; }
+.insight-banner p { margin: 0; color: #596577; line-height: 1.6; }
+
+.market-summary-grid { grid-template-columns: repeat(4, 1fr); }
+.finding-grid { grid-template-columns: repeat(3, 1fr); }
+
+.chart-shell { margin: 24px 0 30px; border: 1px solid #f0e3d2; border-radius: 16px; background: #ffffff; padding: 20px 20px 10px; box-shadow: 0 10px 28px rgba(93, 55, 16, .05); overflow: hidden; }
+.chart-label { margin: 4px 0 2px; font-size: 12px; color: #8a725d; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
+.chart-note { margin: -12px 0 20px; color: #8a725d; font-size: 12px; }
+
+.analysis-heading { display: flex; justify-content: space-between; gap: 20px; align-items: start; margin-top: 28px; }
+.language-pill { display: inline-flex; padding: 6px 10px; border-radius: 999px; background: #fff3d6; border: 1px solid #f1d49a; color: #a65300; font-size: 11px; font-weight: 700; }
+.code-card { margin-top: 14px; border: 1px solid #eadfce; border-radius: 14px; overflow: hidden; background: #fff; }
+.code-toolbar { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: #fffaf2; border-bottom: 1px solid #eee2d2; }
+.window-dots { display: flex; gap: 6px; }
+.window-dots b { width: 9px; height: 9px; border-radius: 50%; background: #e4c99e; display: block; }
+.copy-code { border: 0; background: transparent; color: #9a5b19; font-size: 11px; cursor: pointer; }
+.code-card pre { margin: 0; border: 0 !important; border-radius: 0 !important; }
+
+.roadmap-strip { margin-top: 22px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.roadmap-strip div { border-top: 3px solid #e58a12; background: #fffaf0; border-radius: 0 0 10px 10px; padding: 16px; }
+.roadmap-strip small { color: #d97706; font-weight: 700; }
+.roadmap-strip strong { display: block; margin: 5px 0 6px; }
+.roadmap-strip p { margin: 0; color: #667085; font-size: 12px; line-height: 1.5; }
+
+.ml-intro { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(210px, .7fr); gap: 34px; align-items: start; }
+.ml-method-card { background: linear-gradient(145deg, #fff6df, #fffdf7); border: 1px solid #f1dfb9; border-radius: 16px; padding: 22px; }
+.ml-method-card .method-label, .mini-eyebrow, .finding-kicker { color: #d97706; font-size: 10px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
+.ml-method-card > strong { display: block; margin-top: 7px; font-size: 27px; color: #293548; }
+.ml-method-card > p { color: #718096; margin: 3px 0 16px; }
+.method-tags, .feature-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.method-tags span, .feature-chips span { padding: 7px 11px; background: #fff3d6; border: 1px solid #f0d7a4; border-radius: 999px; font-size: 11px; color: #74552d; }
+.ml-callout, .limitation-card { display: flex; gap: 16px; background: #fffdf9; border: 1px solid #f0e3d2; border-radius: 14px; padding: 20px; margin-top: 20px; }
+.callout-icon { width: 36px; height: 36px; border-radius: 10px; background: #fff0c7; color: #d97706; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+.ml-callout p, .limitation-card p { margin: 5px 0 0; color: #667085; line-height: 1.65; }
+
+.hero-food-card { min-height: 310px; border-radius: 24px; background: linear-gradient(145deg, #ff9f1c 0%, #ffc857 52%, #fff0a8 100%); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0 24px 50px rgba(207, 116, 0, .18); }
+.hero-food-card:before, .hero-food-card:after { content: ""; position: absolute; border-radius: 50%; background: rgba(255,255,255,.22); }
+.hero-food-card:before { width: 220px; height: 220px; top: -80px; right: -60px; }
+.hero-food-card:after { width: 160px; height: 160px; bottom: -65px; left: -35px; }
+.hero-food-icon { font-size: 96px; position: relative; z-index: 2; filter: drop-shadow(0 10px 12px rgba(117,61,0,.15)); }
+
+@media (max-width: 950px) { .research-grid, .market-summary-grid, .finding-grid, .roadmap-strip { grid-template-columns: 1fr 1fr; } .ml-intro { grid-template-columns: 1fr; } }
+@media (max-width: 650px) { .research-grid, .market-summary-grid, .finding-grid, .roadmap-strip { grid-template-columns: 1fr; } .chart-shell { padding: 12px 8px 6px; } }
+.plotly-graph-div { width: 100% !important; }
+</style>
+
+<header class="site-header container">
+  <a class="brand" href="/">ESSHA KHAN</a>
+  <nav class="nav-links">
+    <a href="/projects/">Work</a>
+    <a href="/about.html">About</a>
+    <a href="/Resume_EsshaKhan.pdf">Resume</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
+  <div class="status-pill"><span></span>Open to opportunities</div>
+</header>
+
+<div class="case-layout container">
+<aside class="case-sidebar">
+  <a href="/projects/">← &nbsp; All projects</a>
+  <nav id="case-scroll-nav">
+    <a href="#overview" class="active">01 &nbsp; Overview</a>
+    <a href="#database">02 &nbsp; Database</a>
+    <a href="#sql">03 &nbsp; SQL Insights</a>
+    <a href="#delivery">04 &nbsp; Delivery Performance</a>
+    <a href="#customers">05 &nbsp; Customer Value</a>
+    <a href="#model">06 &nbsp; Prediction</a>
+    <a href="#takeaways">07 &nbsp; Takeaways</a>
+  </nav>
+</aside>
+
+<main class="case-main">
+<section id="overview" class="case-hero">
+  <div>
+    <p class="eyebrow"><span class="num">01</span> DATABASE + ANALYTICS PROJECT</p>
+    <h1>What happens between placing an order and food arriving at the doorstep?</h1>
+    <p class="case-lede">I analyzed the operational backbone of a digital food delivery marketplace using relational data across customers, restaurants, menu items, orders, couriers, and deliveries. The goal was to understand how the platform performs end to end — from customer spending to delivery efficiency.</p>
+    <div class="tags">
+      <span>SQL</span><span>SQLite</span><span>Relational Databases</span><span>ERD</span><span>Regression</span><span>Business Analytics</span>
+    </div>
+  </div>
+  <div class="hero-food-card"><div class="hero-food-icon">🍔</div></div>
+</section>
+
+<div class="case-section">
+  <p class="eyebrow">BUSINESS QUESTIONS</p>
+  <h2>What did I want to understand?</h2>
+  <div class="research-grid">
+    <div class="research-card"><span>01 — CUSTOMERS</span><h3>Who creates the most value?</h3><p>Which customers contribute the most total spend once food, delivery fees, and tips are considered together?</p></div>
+    <div class="research-card"><span>02 — RESTAURANTS</span><h3>What drives marketplace sales?</h3><p>How can restaurant, menu, order, and item-level data be connected to understand purchasing activity?</p></div>
+    <div class="research-card"><span>03 — COURIERS</span><h3>Who delivers most efficiently?</h3><p>Which delivery partners are fastest, where do performance gaps appear, and what could those gaps mean operationally?</p></div>
+    <div class="research-card"><span>04 — PREDICTION</span><h3>What explains delivery time?</h3><p>Can regression help approximate delivery duration and reveal which features are most associated with delays?</p></div>
+  </div>
+</div>
+
+<section id="database" class="case-section">
+  <p class="eyebrow"><span class="num">02</span> DATABASE STRUCTURE</p>
+  <h2>Modeling the full order lifecycle</h2>
+  <p class="wide-copy">The relational schema connects the customer experience to the operational work happening behind the scenes. Customers place orders, restaurants publish menu items, order items capture the products purchased, and deliveries connect fulfilled orders to delivery partners.</p>
+  <div class="market-summary-grid">
+    <div class="market-summary-card"><span>CUSTOMERS</span><h3>Demand</h3><p>Identity, activity, and location support segmentation and lifecycle analysis.</p></div>
+    <div class="market-summary-card"><span>ORDERS</span><h3>Transactions</h3><p>The central transaction table captures demand, fees, revenue, and fulfillment outcomes.</p></div>
+    <div class="market-summary-card"><span>RESTAURANTS</span><h3>Supply</h3><p>Restaurants, menu items, and order items represent the purchasing funnel.</p></div>
+    <div class="market-summary-card"><span>DELIVERIES</span><h3>Fulfillment</h3><p>Courier assignment, pickup/drop-off timing, tips, and cost connect operations to service quality.</p></div>
+  </div>
+  <div class="rationale-box">
+    <p><strong>Key relationships.</strong> Each order belongs to exactly one customer, while a customer can place zero to many orders. Each delivery is handled by exactly one delivery partner, while a partner can complete zero to many deliveries. Together, the schema supports analysis across customer acquisition, restaurant supply, transaction processing, item-level sales, courier execution, and marketplace service quality.</p>
+  </div>
+</section>
+
+<section id="sql" class="case-section">
+  <p class="eyebrow"><span class="num">03</span> SQL ANALYSIS</p>
+  <h2>Turning relational data into business insight</h2>
+  <p class="wide-copy">I used SQL joins, aggregations, date calculations, CTEs, and grouped analysis to move beyond individual tables and evaluate how the marketplace behaves as a connected system.</p>
+  <div class="finding-grid">
+    <div class="finding-card"><span>OPERATIONS</span><h3>Courier performance</h3><p>Compare average delivery time and completed delivery volume across delivery partners.</p></div>
+    <div class="finding-card"><span>CUSTOMER VALUE</span><h3>Total platform spend</h3><p>Combine item totals, delivery fees, and tips to calculate broader customer contribution.</p></div>
+    <div class="finding-card"><span>DECISION SUPPORT</span><h3>Actionable output</h3><p>Translate query results into questions about dispatching, retention, and service quality.</p></div>
+  </div>
+</section>
+
+<section id="delivery" class="case-section">
+  <p class="eyebrow"><span class="num">04</span> DELIVERY PARTNER PERFORMANCE</p>
+  <h2>How much does delivery speed vary by courier?</h2>
+  <p class="wide-copy">One of the clearest operational questions was identifying the fastest and slowest delivery partners. I calculated average delivery time from pickup to drop-off and compared performance across completed deliveries.</p>
+  <div class="analysis-heading"><div><h2>Average delivery time by partner</h2><p>The query calculates delivery duration in minutes and ranks partners from fastest to slowest.</p></div><span class="language-pill">SQL</span></div>
+  <div class="code-card"><div class="code-toolbar"><div class="window-dots"><b></b><b></b><b></b></div><button class="copy-code">Copy</button></div><pre><code class="language-sql">SELECT
+    dp.dp_id,
+    dp.name,
+    ROUND(
+        AVG((julianday(d.dropoff_time) - julianday(d.pickup_time)) * 24 * 60),
+        2
+    ) AS avg_delivery_minutes,
+    COUNT(d.delivery_id) AS total_deliveries
+FROM delivery_partners dp
+JOIN deliveries d ON dp.dp_id = d.dp_id
+WHERE d.pickup_time IS NOT NULL
+  AND d.dropoff_time IS NOT NULL
+GROUP BY dp.dp_id, dp.name
+ORDER BY avg_delivery_minutes ASC;</code></pre></div>
+  <div class="insight-banner"><strong>✦ &nbsp; Key finding</strong><p>Delivery speed varied clearly across partners. Patty Holt, Shelley Lucas, and Bridget Summers averaged roughly 22–23 minutes per delivery, while Luke Peterson, Randy Kent, Joseph Lopez, and Martha Torres were closer to 27 minutes — a gap of about five minutes.</p></div>
+  <div class="rationale-box"><p><strong>Why this matters.</strong> Even a relatively small delivery-time gap can influence customer satisfaction, repeat ordering, and perceptions of reliability. This analysis can help identify high-performing couriers, investigate inefficiencies, improve dispatching decisions, and monitor service quality.</p></div>
+</section>
+
+<section id="customers" class="case-section">
+  <p class="eyebrow"><span class="num">05</span> CUSTOMER SPENDING</p>
+  <h2>Customer value is more than order count</h2>
+  <p class="wide-copy">To understand customer contribution, I calculated the full cost of each customer's orders rather than looking only at food subtotal. The analysis combines item prices and quantities with delivery fees and tips.</p>
+  <div class="analysis-heading"><div><h2>Building total customer spend</h2><p>Layered CTEs connect order items, orders, and deliveries before aggregating to the customer level.</p></div><span class="language-pill">SQL</span></div>
+  <div class="code-card"><div class="code-toolbar"><div class="window-dots"><b></b><b></b><b></b></div><button class="copy-code">Copy</button></div><pre><code class="language-sql">WITH customer_payment_info AS (
+    WITH order_price_info AS (
+        SELECT
+            oi.item_price_at_order,
+            oi.quantity,
+            oi.order_id,
+            o.customer_id,
+            d.tip_amount,
+            o.delivery_fee
+        FROM order_items oi
+        LEFT JOIN orders o ON oi.order_id = o.order_id
+        LEFT JOIN deliveries d ON oi.order_id = d.order_id
+    )
+    SELECT
+        customer_id,
+        tip_amount,
+        delivery_fee,
+        SUM(item_price_at_order * quantity) AS order_total
+    FROM order_price_info
+    GROUP BY order_id
+)
+SELECT
+    customer_id,
+    SUM(tip_amount + delivery_fee + order_total) AS customer_total
+FROM customer_payment_info
+GROUP BY customer_id
+ORDER BY customer_id;</code></pre></div>
+  <div class="insight-banner"><strong>✦ &nbsp; Key finding</strong><p>Customer value is not just about how often someone orders. Total spend becomes more informative when the food subtotal, delivery fee, and tip are considered together.</p></div>
+  <div class="roadmap-strip">
+    <div><small>01</small><strong>Segment</strong><p>Group customers using broader spending behavior.</p></div>
+    <div><small>02</small><strong>Identify</strong><p>Surface high-value users across the marketplace.</p></div>
+    <div><small>03</small><strong>Retain</strong><p>Inform targeted loyalty and retention strategies.</p></div>
+    <div><small>04</small><strong>Measure</strong><p>Build a clearer picture of lifetime value contribution.</p></div>
+  </div>
+</section>
+
+<section id="model" class="case-section">
+  <p class="eyebrow"><span class="num">06</span> MACHINE LEARNING</p>
+  <div class="ml-intro">
+    <div><h2>Predicting delivery time</h2><p class="wide-copy">I extended the project beyond descriptive analytics by framing a regression problem around delivery duration. The goal was to approximate how long a delivery would take and understand which variables were most strongly associated with delays.</p></div>
+    <div class="ml-method-card"><span class="method-label">MODEL</span><strong>Lasso</strong><p>Regression with standardized features</p><div class="method-tags"><span>Delivery time</span><span>Geography</span><span>Distance</span><span>Operations</span></div></div>
+  </div>
+  <div class="finding-grid">
+    <div class="finding-card"><span>EXPECTATION</span><h3>Distance</h3><p>I initially expected distance to be the strongest driver of delivery time.</p></div>
+    <div class="finding-card"><span>RESULT</span><h3>Boston</h3><p>The strongest positive coefficient was associated with being in Boston rather than raw distance.</p></div>
+    <div class="finding-card"><span>INTERPRETATION</span><h3>Context matters</h3><p>Geographic context appeared to capture operational complexity that distance alone did not explain.</p></div>
+  </div>
+  <div class="ml-callout"><div class="callout-icon">↗</div><div><strong>Unexpected insight</strong><p>Geographic context appeared to matter more than raw distance alone. A likely explanation is omitted-variable bias: traffic, road design, parking difficulty, and urban density were not represented directly in the model.</p></div></div>
+  <div class="rationale-box"><p>This reinforced an important analytics lesson: the most intuitive variable is not always the most explanatory one. In operational settings, hidden complexity can shape outcomes more than a simple measure such as distance.</p></div>
+</section>
+
+<section id="takeaways" class="case-section">
+  <p class="eyebrow"><span class="num">07</span> TAKEAWAYS</p>
+  <h2>What I learned from the marketplace</h2>
+  <div class="finding-grid">
+    <div class="finding-card"><span>01 — SYSTEM VIEW</span><h3>Analyze the full lifecycle</h3><p>Food delivery is better understood as a connected system than as isolated transactions.</p></div>
+    <div class="finding-card"><span>02 — SQL</span><h3>Operational patterns emerge</h3><p>Relational analysis makes courier performance and customer value measurable across entities.</p></div>
+    <div class="finding-card"><span>03 — MODELING</span><h3>Prediction exposes hidden drivers</h3><p>Even an imperfect model can reveal factors that deserve deeper operational investigation.</p></div>
+  </div>
+
+  <div class="analysis-heading"><div><h2>Limitations</h2><p>The model and dataset leave room for more targeted future analysis.</p></div></div>
+  <div class="roadmap-strip">
+    <div><small>DATA</small><strong>10 months</strong><p>The dataset was too short to evaluate full-year seasonality.</p></div>
+    <div><small>FEATURES</small><strong>Too broad</strong><p>Too many features made the model more generic and less interpretable.</p></div>
+    <div><small>SEGMENTS</small><strong>Mixed contexts</strong><p>Insufficient segmentation reduced prediction accuracy.</p></div>
+    <div><small>OPERATIONS</small><strong>Missing context</strong><p>Traffic, street layout, parking, and density were not directly modeled.</p></div>
+  </div>
+
+  <div class="analysis-heading"><div><h2>Recommended next steps</h2><p>Future modeling should narrow the prediction context and add operational features.</p></div></div>
+  <div class="rationale-box"><p>Add time-of-day and day-of-week features, segment deliveries into more homogeneous groups, build context-specific models such as city-based or bike-only deliveries, and incorporate traffic or street-layout variables where possible. A stronger future question would be: <strong>How long will a New York bike delivery take on a Friday night at 6 PM?</strong></p></div>
+
+  <div class="insight-banner"><strong>Final reflection</strong><p>This project showed me how structured relational data can be transformed into a business story. Combining database design, SQL analysis, and predictive modeling made it possible to examine the marketplace across customers, restaurants, and couriers — and connect technical analysis back to operational decisions.</p></div>
+</section>
+
+</main>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const links = document.querySelectorAll('#case-scroll-nav a');
+  const sections = [...links].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        links.forEach(a => a.classList.remove('active'));
+        const active = document.querySelector(`#case-scroll-nav a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-25% 0px -65% 0px', threshold: 0 });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('.copy-code').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const code = btn.closest('.code-card').querySelector('code').innerText;
+      await navigator.clipboard.writeText(code);
+      const old = btn.textContent; btn.textContent = 'Copied';
+      setTimeout(() => btn.textContent = old, 1200);
+    });
+  });
+});
+</script>
+```
