@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Essha Khan - Delivering Insights From a Food Delivery Marketplace</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+
+
+<link href="../../assets/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<style>html{ scroll-behavior: smooth; }</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body>
+
+
+<header id="title-block-header">
+<h1 class="title">Delivering Insights From a Food Delivery Marketplace</h1>
+
+</header>
+
+
+<style>
+#title-block-header, .quarto-title-block { display: none !important; }
+
+.case-sidebar nav a { transition: background .18s ease, color .18s ease, transform .18s ease; }
+.case-sidebar nav a.active { background: #9a4d00; color: #ffffff !important; border-radius: 8px; transform: translateX(2px); }
+
+.research-grid, .market-summary-grid, .finding-grid { display: grid; gap: 14px; margin-top: 20px; }
+.research-grid { grid-template-columns: repeat(2, 1fr); }
+.research-card, .market-summary-card, .finding-card { border: 1px solid #f0e3d2; border-radius: 14px; padding: 18px; background: #ffffff; }
+.research-card:nth-child(1), .market-summary-card:nth-child(1) { background: linear-gradient(135deg, #fff4df, #fffaf2); }
+.research-card:nth-child(2), .market-summary-card:nth-child(2) { background: linear-gradient(135deg, #fff8c9, #fffdf0); }
+.research-card:nth-child(3), .market-summary-card:nth-child(3) { background: linear-gradient(135deg, #ffead7, #fff8f2); }
+.research-card:nth-child(4), .market-summary-card:nth-child(4) { background: linear-gradient(135deg, #fff0b8, #fffaf0); }
+.research-card span, .market-summary-card span, .finding-card span { display: block; color: #d97706; font-size: 11px; font-weight: 700; letter-spacing: .08em; margin-bottom: 8px; }
+.research-card h3, .market-summary-card h3, .finding-card h3 { margin: 0 0 8px; font-size: 17px; }
+.research-card p, .market-summary-card p, .finding-card p { margin: 0; color: #667085; font-size: 13px; line-height: 1.55; }
+
+.rationale-box, .literature-box { margin-top: 20px; border: 1px solid #f0e3d2; border-radius: 14px; padding: 22px 24px; background: #fffdf9; }
+.rationale-box p, .literature-box p { color: #596577; line-height: 1.72; }
+
+.insight-banner { margin-top: 18px; padding: 20px 22px; border-radius: 12px; background: linear-gradient(90deg, #fff4d6, #fff9e8); border: 1px solid #f5d99b; }
+.insight-banner strong { display: block; margin-bottom: 7px; }
+.insight-banner p { margin: 0; color: #596577; line-height: 1.6; }
+
+.market-summary-grid { grid-template-columns: repeat(4, 1fr); }
+.finding-grid { grid-template-columns: repeat(3, 1fr); }
+
+.chart-shell { margin: 24px 0 30px; border: 1px solid #f0e3d2; border-radius: 16px; background: #ffffff; padding: 20px 20px 10px; box-shadow: 0 10px 28px rgba(93, 55, 16, .05); overflow: hidden; }
+.chart-label { margin: 4px 0 2px; font-size: 12px; color: #8a725d; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
+.chart-note { margin: -12px 0 20px; color: #8a725d; font-size: 12px; }
+
+.analysis-heading { display: flex; justify-content: space-between; gap: 20px; align-items: start; margin-top: 28px; }
+.language-pill { display: inline-flex; padding: 6px 10px; border-radius: 999px; background: #fff3d6; border: 1px solid #f1d49a; color: #a65300; font-size: 11px; font-weight: 700; }
+.code-card { margin-top: 14px; border: 1px solid #eadfce; border-radius: 14px; overflow: hidden; background: #fff; }
+.code-toolbar { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: #fffaf2; border-bottom: 1px solid #eee2d2; }
+.window-dots { display: flex; gap: 6px; }
+.window-dots b { width: 9px; height: 9px; border-radius: 50%; background: #e4c99e; display: block; }
+.copy-code { border: 0; background: transparent; color: #9a5b19; font-size: 11px; cursor: pointer; }
+.code-card pre { margin: 0; border: 0 !important; border-radius: 0 !important; }
+
+.roadmap-strip { margin-top: 22px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.roadmap-strip div { border-top: 3px solid #e58a12; background: #fffaf0; border-radius: 0 0 10px 10px; padding: 16px; }
+.roadmap-strip small { color: #d97706; font-weight: 700; }
+.roadmap-strip strong { display: block; margin: 5px 0 6px; }
+.roadmap-strip p { margin: 0; color: #667085; font-size: 12px; line-height: 1.5; }
+
+.ml-intro { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(210px, .7fr); gap: 34px; align-items: start; }
+.ml-method-card { background: linear-gradient(145deg, #fff6df, #fffdf7); border: 1px solid #f1dfb9; border-radius: 16px; padding: 22px; }
+.ml-method-card .method-label, .mini-eyebrow, .finding-kicker { color: #d97706; font-size: 10px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
+.ml-method-card > strong { display: block; margin-top: 7px; font-size: 27px; color: #293548; }
+.ml-method-card > p { color: #718096; margin: 3px 0 16px; }
+.method-tags, .feature-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.method-tags span, .feature-chips span { padding: 7px 11px; background: #fff3d6; border: 1px solid #f0d7a4; border-radius: 999px; font-size: 11px; color: #74552d; }
+.ml-callout, .limitation-card { display: flex; gap: 16px; background: #fffdf9; border: 1px solid #f0e3d2; border-radius: 14px; padding: 20px; margin-top: 20px; }
+.callout-icon { width: 36px; height: 36px; border-radius: 10px; background: #fff0c7; color: #d97706; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+.ml-callout p, .limitation-card p { margin: 5px 0 0; color: #667085; line-height: 1.65; }
+
+.hero-food-card { min-height: 310px; border-radius: 24px; background: linear-gradient(145deg, #ff9f1c 0%, #ffc857 52%, #fff0a8 100%); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0 24px 50px rgba(207, 116, 0, .18); }
+.hero-food-card:before, .hero-food-card:after { content: ""; position: absolute; border-radius: 50%; background: rgba(255,255,255,.22); }
+.hero-food-card:before { width: 220px; height: 220px; top: -80px; right: -60px; }
+.hero-food-card:after { width: 160px; height: 160px; bottom: -65px; left: -35px; }
+.hero-food-icon { font-size: 96px; position: relative; z-index: 2; filter: drop-shadow(0 10px 12px rgba(117,61,0,.15)); }
+
+@media (max-width: 950px) { .research-grid, .market-summary-grid, .finding-grid, .roadmap-strip { grid-template-columns: 1fr 1fr; } .ml-intro { grid-template-columns: 1fr; } }
+@media (max-width: 650px) { .research-grid, .market-summary-grid, .finding-grid, .roadmap-strip { grid-template-columns: 1fr; } .chart-shell { padding: 12px 8px 6px; } }
+.plotly-graph-div { width: 100% !important; }
+</style>
+
+<header class="site-header container">
+  <a class="brand" href="../../">ESSHA KHAN</a>
+  <nav class="nav-links">
+    <a href="../../projects/">Work</a>
+    <a href="../../about.html">About</a>
+    <a href="../../Resume_EsshaKhan.pdf">Resume</a>
+    <a href="../../contact.html">Contact</a>
+  </nav>
+  <div class="status-pill"><span></span>Open to opportunities</div>
+</header>
+
+<div class="case-layout container">
+<aside class="case-sidebar">
+  <a href="../../projects/">← &nbsp; All projects</a>
+  <nav id="case-scroll-nav">
+    <a href="#overview" class="active">01 &nbsp; Overview</a>
+    <a href="#database">02 &nbsp; Database</a>
+    <a href="#sql">03 &nbsp; SQL Insights</a>
+    <a href="#delivery">04 &nbsp; Delivery Performance</a>
+    <a href="#customers">05 &nbsp; Customer Value</a>
+    <a href="#model">06 &nbsp; Prediction</a>
+    <a href="#takeaways">07 &nbsp; Takeaways</a>
+  </nav>
+</aside>
+
+<main class="case-main">
+<section id="overview" class="case-hero">
+  <div>
+    <p class="eyebrow"><span class="num">01</span> DATABASE + ANALYTICS PROJECT</p>
+    <h1>What happens between placing an order and food arriving at the doorstep?</h1>
+    <p class="case-lede">I analyzed the operational backbone of a digital food delivery marketplace using relational data across customers, restaurants, menu items, orders, couriers, and deliveries. The goal was to understand how the platform performs end to end — from customer spending to delivery efficiency.</p>
+    <div class="tags">
+      <span>SQL</span><span>SQLite</span><span>Relational Databases</span><span>ERD</span><span>Regression</span><span>Business Analytics</span>
+    </div>
+  </div>
+  <div class="hero-food-card"><div class="hero-food-icon">🍔</div></div>
+</section>
+
+<div class="case-section">
+  <p class="eyebrow">BUSINESS QUESTIONS</p>
+  <h2 class="anchored">What did I want to understand?</h2>
+  <div class="research-grid">
+    <div class="research-card"><span>01 — CUSTOMERS</span><h3 class="anchored">Who creates the most value?</h3><p>Which customers contribute the most total spend once food, delivery fees, and tips are considered together?</p></div>
+    <div class="research-card"><span>02 — RESTAURANTS</span><h3 class="anchored">What drives marketplace sales?</h3><p>How can restaurant, menu, order, and item-level data be connected to understand purchasing activity?</p></div>
+    <div class="research-card"><span>03 — COURIERS</span><h3 class="anchored">Who delivers most efficiently?</h3><p>Which delivery partners are fastest, where do performance gaps appear, and what could those gaps mean operationally?</p></div>
+    <div class="research-card"><span>04 — PREDICTION</span><h3 class="anchored">What explains delivery time?</h3><p>Can regression help approximate delivery duration and reveal which features are most associated with delays?</p></div>
+  </div>
+</div>
+
+<section id="database" class="case-section">
+  <p class="eyebrow"><span class="num">02</span> DATABASE STRUCTURE</p>
+  <h2 class="anchored">Modeling the full order lifecycle</h2>
+  <p class="wide-copy">The relational schema connects the customer experience to the operational work happening behind the scenes. Customers place orders, restaurants publish menu items, order items capture the products purchased, and deliveries connect fulfilled orders to delivery partners.</p>
+  <div class="market-summary-grid">
+    <div class="market-summary-card"><span>CUSTOMERS</span><h3 class="anchored">Demand</h3><p>Identity, activity, and location support segmentation and lifecycle analysis.</p></div>
+    <div class="market-summary-card"><span>ORDERS</span><h3 class="anchored">Transactions</h3><p>The central transaction table captures demand, fees, revenue, and fulfillment outcomes.</p></div>
+    <div class="market-summary-card"><span>RESTAURANTS</span><h3 class="anchored">Supply</h3><p>Restaurants, menu items, and order items represent the purchasing funnel.</p></div>
+    <div class="market-summary-card"><span>DELIVERIES</span><h3 class="anchored">Fulfillment</h3><p>Courier assignment, pickup/drop-off timing, tips, and cost connect operations to service quality.</p></div>
+  </div>
+  <div class="rationale-box">
+    <p><strong>Key relationships.</strong> Each order belongs to exactly one customer, while a customer can place zero to many orders. Each delivery is handled by exactly one delivery partner, while a partner can complete zero to many deliveries. Together, the schema supports analysis across customer acquisition, restaurant supply, transaction processing, item-level sales, courier execution, and marketplace service quality.</p>
+  </div>
+</section>
+
+<section id="sql" class="case-section">
+  <p class="eyebrow"><span class="num">03</span> SQL ANALYSIS</p>
+  <h2 class="anchored">Turning relational data into business insight</h2>
+  <p class="wide-copy">I used SQL joins, aggregations, date calculations, CTEs, and grouped analysis to move beyond individual tables and evaluate how the marketplace behaves as a connected system.</p>
+  <div class="finding-grid">
+    <div class="finding-card"><span>OPERATIONS</span><h3 class="anchored">Courier performance</h3><p>Compare average delivery time and completed delivery volume across delivery partners.</p></div>
+    <div class="finding-card"><span>CUSTOMER VALUE</span><h3 class="anchored">Total platform spend</h3><p>Combine item totals, delivery fees, and tips to calculate broader customer contribution.</p></div>
+    <div class="finding-card"><span>DECISION SUPPORT</span><h3 class="anchored">Actionable output</h3><p>Translate query results into questions about dispatching, retention, and service quality.</p></div>
+  </div>
+</section>
+
+<section id="delivery" class="case-section">
+  <p class="eyebrow"><span class="num">04</span> DELIVERY PARTNER PERFORMANCE</p>
+  <h2 class="anchored">How much does delivery speed vary by courier?</h2>
+  <p class="wide-copy">One of the clearest operational questions was identifying the fastest and slowest delivery partners. I calculated average delivery time from pickup to drop-off and compared performance across completed deliveries.</p>
+  <div class="analysis-heading"><div><h2 class="anchored">Average delivery time by partner</h2><p>The query calculates delivery duration in minutes and ranks partners from fastest to slowest.</p></div><span class="language-pill">SQL</span></div>
+  <div class="code-card"><div class="code-toolbar"><div class="window-dots"><b></b><b></b><b></b></div><button class="copy-code">Copy</button></div><pre><code class="language-sql">SELECT
+    dp.dp_id,
+    dp.name,
+    ROUND(
+        AVG((julianday(d.dropoff_time) - julianday(d.pickup_time)) * 24 * 60),
+        2
+    ) AS avg_delivery_minutes,
+    COUNT(d.delivery_id) AS total_deliveries
+FROM delivery_partners dp
+JOIN deliveries d ON dp.dp_id = d.dp_id
+WHERE d.pickup_time IS NOT NULL
+  AND d.dropoff_time IS NOT NULL
+GROUP BY dp.dp_id, dp.name
+ORDER BY avg_delivery_minutes ASC;</code></pre></div>
+  <div class="insight-banner"><strong>✦ &nbsp; Key finding</strong><p>Delivery speed varied clearly across partners. Patty Holt, Shelley Lucas, and Bridget Summers averaged roughly 22–23 minutes per delivery, while Luke Peterson, Randy Kent, Joseph Lopez, and Martha Torres were closer to 27 minutes — a gap of about five minutes.</p></div>
+  <div class="rationale-box"><p><strong>Why this matters.</strong> Even a relatively small delivery-time gap can influence customer satisfaction, repeat ordering, and perceptions of reliability. This analysis can help identify high-performing couriers, investigate inefficiencies, improve dispatching decisions, and monitor service quality.</p></div>
+</section>
+
+<section id="customers" class="case-section">
+  <p class="eyebrow"><span class="num">05</span> CUSTOMER SPENDING</p>
+  <h2 class="anchored">Customer value is more than order count</h2>
+  <p class="wide-copy">To understand customer contribution, I calculated the full cost of each customer's orders rather than looking only at food subtotal. The analysis combines item prices and quantities with delivery fees and tips.</p>
+  <div class="analysis-heading"><div><h2 class="anchored">Building total customer spend</h2><p>Layered CTEs connect order items, orders, and deliveries before aggregating to the customer level.</p></div><span class="language-pill">SQL</span></div>
+  <div class="code-card"><div class="code-toolbar"><div class="window-dots"><b></b><b></b><b></b></div><button class="copy-code">Copy</button></div><pre><code class="language-sql">WITH customer_payment_info AS (
+    WITH order_price_info AS (
+        SELECT
+            oi.item_price_at_order,
+            oi.quantity,
+            oi.order_id,
+            o.customer_id,
+            d.tip_amount,
+            o.delivery_fee
+        FROM order_items oi
+        LEFT JOIN orders o ON oi.order_id = o.order_id
+        LEFT JOIN deliveries d ON oi.order_id = d.order_id
+    )
+    SELECT
+        customer_id,
+        tip_amount,
+        delivery_fee,
+        SUM(item_price_at_order * quantity) AS order_total
+    FROM order_price_info
+    GROUP BY order_id
+)
+SELECT
+    customer_id,
+    SUM(tip_amount + delivery_fee + order_total) AS customer_total
+FROM customer_payment_info
+GROUP BY customer_id
+ORDER BY customer_id;</code></pre></div>
+  <div class="insight-banner"><strong>✦ &nbsp; Key finding</strong><p>Customer value is not just about how often someone orders. Total spend becomes more informative when the food subtotal, delivery fee, and tip are considered together.</p></div>
+  <div class="roadmap-strip">
+    <div><small>01</small><strong>Segment</strong><p>Group customers using broader spending behavior.</p></div>
+    <div><small>02</small><strong>Identify</strong><p>Surface high-value users across the marketplace.</p></div>
+    <div><small>03</small><strong>Retain</strong><p>Inform targeted loyalty and retention strategies.</p></div>
+    <div><small>04</small><strong>Measure</strong><p>Build a clearer picture of lifetime value contribution.</p></div>
+  </div>
+</section>
+
+<section id="model" class="case-section">
+  <p class="eyebrow"><span class="num">06</span> MACHINE LEARNING</p>
+  <div class="ml-intro">
+    <div><h2 class="anchored">Predicting delivery time</h2><p class="wide-copy">I extended the project beyond descriptive analytics by framing a regression problem around delivery duration. The goal was to approximate how long a delivery would take and understand which variables were most strongly associated with delays.</p></div>
+    <div class="ml-method-card"><span class="method-label">MODEL</span><strong>Lasso</strong><p>Regression with standardized features</p><div class="method-tags"><span>Delivery time</span><span>Geography</span><span>Distance</span><span>Operations</span></div></div>
+  </div>
+  <div class="finding-grid">
+    <div class="finding-card"><span>EXPECTATION</span><h3 class="anchored">Distance</h3><p>I initially expected distance to be the strongest driver of delivery time.</p></div>
+    <div class="finding-card"><span>RESULT</span><h3 class="anchored">Boston</h3><p>The strongest positive coefficient was associated with being in Boston rather than raw distance.</p></div>
+    <div class="finding-card"><span>INTERPRETATION</span><h3 class="anchored">Context matters</h3><p>Geographic context appeared to capture operational complexity that distance alone did not explain.</p></div>
+  </div>
+  <div class="ml-callout"><div class="callout-icon">↗</div><div><strong>Unexpected insight</strong><p>Geographic context appeared to matter more than raw distance alone. A likely explanation is omitted-variable bias: traffic, road design, parking difficulty, and urban density were not represented directly in the model.</p></div></div>
+  <div class="rationale-box"><p>This reinforced an important analytics lesson: the most intuitive variable is not always the most explanatory one. In operational settings, hidden complexity can shape outcomes more than a simple measure such as distance.</p></div>
+</section>
+
+<section id="takeaways" class="case-section">
+  <p class="eyebrow"><span class="num">07</span> TAKEAWAYS</p>
+  <h2 class="anchored">What I learned from the marketplace</h2>
+  <div class="finding-grid">
+    <div class="finding-card"><span>01 — SYSTEM VIEW</span><h3 class="anchored">Analyze the full lifecycle</h3><p>Food delivery is better understood as a connected system than as isolated transactions.</p></div>
+    <div class="finding-card"><span>02 — SQL</span><h3 class="anchored">Operational patterns emerge</h3><p>Relational analysis makes courier performance and customer value measurable across entities.</p></div>
+    <div class="finding-card"><span>03 — MODELING</span><h3 class="anchored">Prediction exposes hidden drivers</h3><p>Even an imperfect model can reveal factors that deserve deeper operational investigation.</p></div>
+  </div>
+
+  <div class="analysis-heading"><div><h2 class="anchored">Limitations</h2><p>The model and dataset leave room for more targeted future analysis.</p></div></div>
+  <div class="roadmap-strip">
+    <div><small>DATA</small><strong>10 months</strong><p>The dataset was too short to evaluate full-year seasonality.</p></div>
+    <div><small>FEATURES</small><strong>Too broad</strong><p>Too many features made the model more generic and less interpretable.</p></div>
+    <div><small>SEGMENTS</small><strong>Mixed contexts</strong><p>Insufficient segmentation reduced prediction accuracy.</p></div>
+    <div><small>OPERATIONS</small><strong>Missing context</strong><p>Traffic, street layout, parking, and density were not directly modeled.</p></div>
+  </div>
+
+  <div class="analysis-heading"><div><h2 class="anchored">Recommended next steps</h2><p>Future modeling should narrow the prediction context and add operational features.</p></div></div>
+  <div class="rationale-box"><p>Add time-of-day and day-of-week features, segment deliveries into more homogeneous groups, build context-specific models such as city-based or bike-only deliveries, and incorporate traffic or street-layout variables where possible. A stronger future question would be: <strong>How long will a New York bike delivery take on a Friday night at 6 PM?</strong></p></div>
+
+  <div class="insight-banner"><strong>Final reflection</strong><p>This project showed me how structured relational data can be transformed into a business story. Combining database design, SQL analysis, and predictive modeling made it possible to examine the marketplace across customers, restaurants, and couriers — and connect technical analysis back to operational decisions.</p></div>
+</section>
+
+</main>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const links = document.querySelectorAll('#case-scroll-nav a');
+  const sections = [...links].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        links.forEach(a => a.classList.remove('active'));
+        const active = document.querySelector(`#case-scroll-nav a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-25% 0px -65% 0px', threshold: 0 });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('.copy-code').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const code = btn.closest('.code-card').querySelector('code').innerText;
+      await navigator.clipboard.writeText(code);
+      const old = btn.textContent; btn.textContent = 'Copied';
+      setTimeout(() => btn.textContent = old, 1200);
+    });
+  });
+});
+</script>
+
+
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+  tabsets.forEach(function(tabset) {
+    const tabby = new Tabby('#' + tabset.id);
+  });
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'light-border',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="../../scripts.js"></script>
+
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
